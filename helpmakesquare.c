@@ -6,15 +6,15 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/02 18:15:54 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/02 18:25:57 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-extern int	g_max;
-extern int	g_col;
-extern int	g_row;
+int		g_max;
+int		g_col;
+int		g_row;
 
 int	ft_map_colsize(char **map)
 {

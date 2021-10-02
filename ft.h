@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/02 18:10:29 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/02 18:25:37 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,13 @@ typedef struct s_tempcrs
 	int	size;
 }				t_tempcrs;
 
-int				g_max;
-int				g_col;
-int				g_row;
+/*
+** global vars
+*/
+extern int		g_max;
+extern int		g_col;
+extern int		g_row;
+
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
 void			ft_puterror(char *str);
