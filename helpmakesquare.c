@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   helpmakesquare.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: louisnop <louisnop@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2020/01/30 02:37:11 by louisnop         ###   ########.fr       */
+/*   Updated: 2021/10/02 18:15:54 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "ft.h"
 
-extern	int g_max;
-extern	int g_col;
-extern	int g_row;
+extern int	g_max;
+extern int	g_col;
+extern int	g_row;
 
-int		ft_map_colsize(char **map)
+int	ft_map_colsize(char **map)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (map[1][count])
@@ -36,7 +35,7 @@ void	set_tempcrs(t_tempcrs *p_tempcrs)
 	p_tempcrs->size = 0;
 }
 
-int		ft_check_1(char **map, int col, int row, t_info *p_info)
+int	ft_check_1(char **map, int col, int row, t_info *p_info)
 {
 	if (col == ft_map_colsize(map))
 	{

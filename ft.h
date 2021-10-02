@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: louisnop <louisnop@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2020/01/30 08:07:27 by louisnop         ###   ########.fr       */
+/*   Updated: 2021/10/02 18:10:29 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@
 # define FAIL 0
 # define FT_ERR_MAP "map error\n"
 
-typedef	struct	s_bsq
+typedef struct s_bsq
 {
 	int			x;
 	int			y;
 	int			size;
 }				t_bsq;
 
-typedef	struct	s_info
+typedef struct s_info
 {
 	int		num_rows;
 	char	empty;
@@ -40,7 +40,7 @@ typedef	struct	s_info
 	char	full;
 }				t_info;
 
-typedef	struct	s_tempcrs
+typedef struct s_tempcrs
 {
 	int	col;
 	int	row;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: louisnop <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2020/01/30 08:13:14 by louisnop         ###   ########.fr       */
+/*   Updated: 2021/10/02 18:18:27 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_free(char ***map)
 {
-	long int i;
+	long int	i;
 
 	i = 0;
 	while ((*map)[i])
@@ -33,8 +33,11 @@ char	*ft_read(int ifd)
 	int		n;
 
 	content = NULL;
-	while ((n = read(ifd, buf, FT_BUFSIZ)) > 0)
+	while (1)
 	{
+		n = read(ifd, buf, FT_BUFSIZ);
+		if (n > 0)
+			break ;
 		buf[n] = '\0';
 		if (content == NULL)
 			content = ft_strdup(buf);
@@ -44,7 +47,7 @@ char	*ft_read(int ifd)
 	return (content);
 }
 
-int		ft_main_1(void)
+int	ft_main_1(void)
 {
 	char	*content;
 	char	**map;
@@ -57,7 +60,8 @@ int		ft_main_1(void)
 	free(content);
 	if (ft_validate_5(map) == FAIL)
 		return (FAIL);
-	if (!(info = ft_prse(map)))
+	info = ft_prse(map);
+	if (!info)
 		return (FAIL);
 	if (ft_validate(map, info) == FAIL)
 		return (FAIL);
@@ -67,14 +71,15 @@ int		ft_main_1(void)
 	return (SUCCESS);
 }
 
-int		ft_main_2(int argc, char *argv[], int i)
+int	ft_main_2(int argc, char *argv[], int i)
 {
 	int		ifd;
 	char	*content;
 	char	**map;
 	t_info	*info;
 
-	if ((ifd = open(argv[i], O_RDONLY)) == -1)
+	ifd = open(argv[i], O_RDONLY);
+	if (ifd == -1)
 		return (FAIL);
 	content = ft_read(ifd);
 	if (ft_validate_4(content) == FAIL)
@@ -84,7 +89,8 @@ int		ft_main_2(int argc, char *argv[], int i)
 	free(content);
 	if (ft_validate_5(map) == FAIL)
 		return (FAIL);
-	if (!(info = ft_prse(map)))
+	info = ft_prse(map);
+	if (!info)
 		return (FAIL);
 	if (ft_validate(map, info) == FAIL)
 		return (FAIL);
@@ -96,9 +102,9 @@ int		ft_main_2(int argc, char *argv[], int i)
 	return (SUCCESS);
 }
 
-int		main(int argc, char *argv[])
+int	main(int argc, char *argv[])
 {
-	int i;
+	int	i;
 
 	if (argc < 2)
 	{
