@@ -6,13 +6,12 @@
 #    By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/28 13:12:23 by louisnop          #+#    #+#              #
-#    Updated: 2021/10/02 20:20:40 by mfunyu           ###   ########.fr        #
+#    Updated: 2021/10/02 21:59:00 by mfunyu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
 NAME = bsq
+SRCSDIR = srcs/
 SRCS = main.c \
 		ft_puts.c \
 		ft_utility.c \
@@ -24,7 +23,11 @@ SRCS = main.c \
 		ft_validate_map.c \
 		makesquare2.c \
 		helpmakesquare.c
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:%.c=$(SRCSDIR)%.o)
+INCLUDES = includes
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I$(INCLUDES)
 
 .PHONY: all clean fclean re
 
