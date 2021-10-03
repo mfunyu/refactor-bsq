@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/03 17:40:07 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 00:38:34 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,7 @@ int				ft_check_1(char **map, int col, int row, t_info *p_info);
 void			generate_correct_map(char **map, t_info *p_info);
 void			set_bsq(t_bsq *p_bsq);
 int				ft_map_colsize(char **map);
+
+char	*read_from_fd(int fd);
 
 #endif
