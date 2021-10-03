@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:47:47 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 01:04:20 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 01:11:09 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int	check_map_first_line(char *content, int len)
+int	check_first_line(char *content, int len)
 {
 	int		i;
 	int		empty;
@@ -37,15 +37,13 @@ int	check_map_first_line(char *content, int len)
 	return (SUCCESS);
 }
 
-t_info	*parse_first_line(char *content, int len)
+int	parse_first_line(t_info *info, char *content, int len)
 {
-	t_info	*info;
 	int		i;
 	char	*num;
 	int		row_size_digits;
 
 	row_size_digits = len - 3;
-	info = malloc(sizeof(t_info *));
 	num = malloc(sizeof(char) * (row_size_digits + 1));
 	i = -1;
 	while (++i < row_size_digits)
@@ -56,5 +54,5 @@ t_info	*parse_first_line(char *content, int len)
 	info->obstacle = content[row_size_digits + 1];
 	info->full = content[row_size_digits + 2];
 	free(num);
-	return (info);
+	return (SUCCESS);
 }
