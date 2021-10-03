@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/02 18:18:27 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/03 14:15:24 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_read(int ifd)
 	while (1)
 	{
 		n = read(ifd, buf, FT_BUFSIZ);
-		if (n > 0)
+		if (n <= 0)
 			break ;
 		buf[n] = '\0';
 		if (content == NULL)
