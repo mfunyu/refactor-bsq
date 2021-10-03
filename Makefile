@@ -6,7 +6,7 @@
 #    By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/28 13:12:23 by louisnop          #+#    #+#              #
-#    Updated: 2021/10/02 21:59:00 by mfunyu           ###   ########.fr        #
+#    Updated: 2021/10/03 17:06:05 by mfunyu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,3 +43,16 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+
+########################################33
+
+TESTER = tester_bsq
+
+.PHONY: test
+
+test: all
+ifneq ($(shell echo ${TESTER}), $(shell ls | grep ${TESTER}))
+	git clone https://github.com/mfunyu/tester_bsq.git
+endif
+	cd tester_bsq && ./test.sh
