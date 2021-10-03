@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/02 18:25:37 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/03 17:40:07 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ char			*ft_strdup(char *src);
 char			*ft_strjoin(char *s1, char *s2);
 char			**ft_split(char *str, char *charset);
 int				ft_atoi(char *str);
-int				ft_validate_5(char **map);
-t_info			*ft_prse(char **map);
-int				ft_validate(char **map, t_info *info);
-int				ft_validate_4(char *content);
+int				check_map_first_line(char *line);
+t_info			*parse_first_line(char *line);
+int				check_map_structure(char **map, t_info *info);
+int				check_newline_at_eof(char *content);
 void			set_tempcrs(t_tempcrs *p_tempcrs);
 int				ft_check_1(char **map, int col, int row, t_info *p_info);
-void			ft_make_map(char **map, t_info *p_info);
+void			generate_correct_map(char **map, t_info *p_info);
 void			set_bsq(t_bsq *p_bsq);
 int				ft_map_colsize(char **map);
 

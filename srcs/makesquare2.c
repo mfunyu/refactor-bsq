@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/02 18:19:17 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/03 17:39:49 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	ft_change_map(char **map, t_info *p_info)
 	return ;
 }
 
-void	ft_make_map(char **map, t_info *p_info)
+void	generate_correct_map(char **map, t_info *p_info)
 {
 	t_tempcrs	*p_tempcrs;
 

@@ -6,48 +6,39 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:48:35 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/02 18:10:10 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/03 17:34:09 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int	ft_validate_1(char **map, t_info *info)
+int	check_map_chars(char **map, t_info *info)
 {
-	if (!(map[0] && map[1]))
-		return (FAIL);
-	if (!(map[1][0] == info->empty
-		|| map[1][0] == info->obstacle
-		|| map[1][0] == info->full))
-		return (FAIL);
-	return (SUCCESS);
-}
+	int	x;
+	int	y;
 
-int	ft_validate_2(char **map, t_info *info)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (map[++i])
+	y = 1;
+	while (map[y])
 	{
-		j = -1;
-		while (map[i][++j])
+		x = 0;
+		while (map[y][x])
 		{
-			if (!(map[i][j] == info->empty || map[i][j] == info->obstacle))
+			if (map[y][x] != info->empty && map[y][x] != info->obstacle)
 				return (FAIL);
+			x++;
 		}
+		y++;
 	}
 	return (SUCCESS);
 }
 
-int	ft_validate_3(char **map, t_info *info)
+int	check_len_rows_cols(char **map, t_info *info)
 {
 	int	i;
 	int	len;
 
 	i = 1;
-	len = ft_strlen(map[i]);
+	len = ft_strlen(map[1]);
 	while (map[i])
 	{
 		if (len != ft_strlen(map[i]))
@@ -59,7 +50,7 @@ int	ft_validate_3(char **map, t_info *info)
 	return (SUCCESS);
 }
 
-int	ft_validate_4(char *content)
+int	check_newline_at_eof(char *content)
 {
 	int		i;
 
@@ -71,13 +62,13 @@ int	ft_validate_4(char *content)
 	return (SUCCESS);
 }
 
-int	ft_validate(char **map, t_info *info)
+int	check_map_structure(char **map, t_info *info)
 {
-	if (ft_validate_1(map, info) == FAIL)
+	if (!map[1])
 		return (FAIL);
-	if (ft_validate_2(map, info) == FAIL)
+	if (check_map_chars(map, info) == FAIL)
 		return (FAIL);
-	if (ft_validate_3(map, info) == FAIL)
+	if (check_len_rows_cols(map, info) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }

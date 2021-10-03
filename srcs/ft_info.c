@@ -6,21 +6,17 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:47:47 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/02 11:41:58 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/03 17:18:58 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int	ft_validate_5(char **map)
+int	check_map_first_line(char *line)
 {
 	int		len;
-	char	*line;
 	int		i;
 
-	if (!map[0])
-		return (FAIL);
-	line = map[0];
 	len = ft_strlen(line);
 	if (len < 4)
 		return (FAIL);
@@ -39,15 +35,13 @@ int	ft_validate_5(char **map)
 	return (SUCCESS);
 }
 
-t_info	*ft_prse(char **map)
+t_info	*parse_first_line(char *line)
 {
 	t_info	*info;
-	char	*line;
 	int		len;
 	int		i;
 	char	*num;
 
-	line = map[0];
 	len = ft_strlen(line);
 	info = malloc(sizeof(t_info *));
 	num = malloc(sizeof(char) * (len - 3) + 1);
