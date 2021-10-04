@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 23:02:42 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:10:49 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,8 @@ void	ft_change_map(char **map, t_info *p_info)
 {
 	int		x;
 	int		y;
-	t_bsq	*p_bsq;
 
 	y = 0;
-	p_bsq = malloc(sizeof(t_bsq));
-	if (!p_bsq)
-		exit(EXIT_FAILURE);
-	set_bsq(p_bsq);
 	while (y < g_max)
 	{
 		x = 0;
@@ -76,7 +71,6 @@ void	ft_change_map(char **map, t_info *p_info)
 		y++;
 	}
 	put_map(map, p_info);
-	free(p_bsq);
 }
 
 void	generate_answer(char **map, t_info *p_info)

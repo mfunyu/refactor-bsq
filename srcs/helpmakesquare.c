@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 22:53:13 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:04:46 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,4 @@ int	is_empty_spot_on_map(char **map, int x, int y, t_info *p_info)
 	if (map[y][x] == p_info->obstacle || map[y][x] == '\0')
 		return (0);
 	return (1);
-}
-
-void	set_bsq(t_bsq *p_bsq)
-{
-	p_bsq->x = g_col;
-	p_bsq->y = g_row;
-	p_bsq->size = g_max;
 }
