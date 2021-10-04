@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:48:35 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:22:57 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 21:23:52 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,16 @@ int	check_map_chars(char **map, t_info *info)
 
 int	check_map_shape_size(char **map, t_info *info)
 {
-	int	i;
-	int	len;
+	int	y;
 
-	i = 0;
-	len = ft_strlen(map[0]);
-	while (map[i])
+	y = 0;
+	while (map[y])
 	{
-		if (len != ft_strlen(map[i]))
+		if (ft_strlen(map[y]) != info->map_width)
 			return (FAIL);
-		i++;
+		y++;
 	}
-	if (i != info->map_height)
+	if (y != info->map_height)
 		return (FAIL);
 	return (SUCCESS);
 }
@@ -64,8 +62,6 @@ int	check_newline_at_eof(char *content)
 
 int	check_map_structure(char **map, t_info *info)
 {
-	if (!map[0])
-		return (FAIL);
 	if (check_map_chars(map, info) == FAIL)
 		return (FAIL);
 	if (check_map_shape_size(map, info) == FAIL)
