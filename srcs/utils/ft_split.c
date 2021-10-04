@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 15:59:31 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 02:19:34 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 02:37:23 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,28 @@ int	ft_get_wc(char *str, char *charset)
 	return (wc);
 }
 
+void	set_one_word(char **res, char *str, int start, int end)
+{
+	int		i;
+
+	i = 0;
+	while (start <= end)
+	{
+		res[g_word_index][i] = str[start];
+		start++;
+		i++;
+	}
+	res[g_word_index][i] = '\0';
+}
+
 int	ft_add_last_word(char **res, char *str, int i)
 {
-	int	j;
-
 	if (g_state == IN)
 	{
 		res[g_word_index] = malloc(sizeof(char) * ((i - g_start) + 1));
 		if (!res[g_word_index])
 			return (FAIL);
-		j = -1;
-		while (g_start <= i)
-			res[g_word_index][++j] = str[g_start++];
-		res[g_word_index][++j] = '\0';
+		set_one_word(res, str, g_start, i);
 		g_word_index++;
 	}
 	res[g_word_index] = 0;
@@ -79,7 +88,6 @@ char	**ft_split(char *str, char *charset)
 {
 	char	**res;
 	int		i;
-	int		j;
 
 	res = malloc(sizeof(char *) * (ft_get_wc(str, charset) + 1));
 	if (!res)
@@ -95,10 +103,7 @@ char	**ft_split(char *str, char *charset)
 			res[g_word_index] = malloc(sizeof(char) * ((g_end - g_start) + 1));
 			if (!res[g_word_index])
 				return (NULL);
-			j = -1;
-			while (g_start <= g_end)
-				res[g_word_index][++j] = str[g_start++];
-			res[g_word_index][++j] = '\0';
+			set_one_word(res, str, g_start, g_end);
 			g_word_index++;
 		}
 		else
