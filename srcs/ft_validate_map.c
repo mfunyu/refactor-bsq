@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:48:35 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 15:28:34 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:06:56 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	check_len_rows_cols(char **map, t_info *info)
 			return (FAIL);
 		i++;
 	}
-	if (i != info->num_rows)
+	if (i != info->map_height)
 		return (FAIL);
 	return (SUCCESS);
 }

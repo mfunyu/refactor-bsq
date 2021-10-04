@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 01:11:31 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:06:56 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct s_bsq
 
 typedef struct s_info
 {
-	int		num_rows;
+	int		map_height;
 	char	empty;
 	char	obstacle;
 	char	full;
