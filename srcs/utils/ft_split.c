@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 15:59:31 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 02:41:14 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 02:49:15 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,14 @@ int	get_wc(char *str, char *charset)
 	return (wc);
 }
 
-void	set_one_word(char **word_lst, char *str, int start, int end)
+int	set_one_word(char **word_lst, char *str, int start, int end)
 {
 	int		i;
 
 	i = 0;
+	word_lst[g_word_index] = malloc(sizeof(char) * ((end - start) + 1));
+	if (!word_lst[g_word_index])
+		return (FAIL);
 	while (start <= end)
 	{
 		word_lst[g_word_index][i] = str[start];
@@ -64,15 +67,13 @@ void	set_one_word(char **word_lst, char *str, int start, int end)
 		i++;
 	}
 	word_lst[g_word_index][i] = '\0';
+	return (SUCCESS);
 }
 
 int	add_last_word(char **word_lst, char *str, int i)
 {
 	if (g_state == IN)
 	{
-		word_lst[g_word_index] = malloc(sizeof(char) * ((i - g_start) + 1));
-		if (!word_lst[g_word_index])
-			return (FAIL);
 		set_one_word(word_lst, str, g_start, i);
 		g_word_index++;
 	}
@@ -100,9 +101,6 @@ char	**ft_split(char *str, char *charset)
 			if (g_state == OUT)
 				continue ;
 			g_state = OUT;
-			word_lst[g_word_index] = malloc(sizeof(char) * ((g_end - g_start) + 1));
-			if (!word_lst[g_word_index])
-				return (NULL);
 			set_one_word(word_lst, str, g_start, g_end);
 			g_word_index++;
 		}
