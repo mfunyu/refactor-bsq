@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 23:10:49 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:11:47 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@ int		g_max;
 int		g_col;
 int		g_row;
 
-int	is_square_placable(char **map, t_tempcrs *p_tempcrs, t_info *p_info)
+int	is_square_placable(char **map, t_tempcrs *p_tempcrs, int sq_size, t_info *p_info)
 {
 	int	i;
 
 	i = 0;
-	while (i <= p_tempcrs->size)
+	while (i <= sq_size)
 	{
 		if (!is_empty_spot_on_map(map, p_tempcrs->x + i,
-				p_tempcrs->y + p_tempcrs->size, p_info))
+				p_tempcrs->y + sq_size, p_info))
 			return (0);
 		i++;
 	}
 	i = 0;
-	while (i <= p_tempcrs->size)
+	while (i <= sq_size)
 	{
-		if (!is_empty_spot_on_map(map, p_tempcrs->x + p_tempcrs->size,
+		if (!is_empty_spot_on_map(map, p_tempcrs->x + sq_size,
 				p_tempcrs->y + i, p_info))
 			return (0);
 		i++;
@@ -41,14 +41,16 @@ int	is_square_placable(char **map, t_tempcrs *p_tempcrs, t_info *p_info)
 
 void	check_for_square(char **map, t_tempcrs *p_tempcrs, t_info *p_info)
 {
-	p_tempcrs->size = 0;
-	while (is_square_placable(map, p_tempcrs, p_info))
+	int	sq_size;
+
+	sq_size = 0;
+	while (is_square_placable(map, p_tempcrs, sq_size, p_info))
 	{
-		p_tempcrs->size++;
+		sq_size++;
 	}
-	if (g_max < p_tempcrs->size)
+	if (g_max < sq_size)
 	{
-		g_max = p_tempcrs->size;
+		g_max = sq_size;
 		g_col = p_tempcrs->x;
 		g_row = p_tempcrs->y;
 	}

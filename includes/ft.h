@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 23:04:53 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:07:14 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_tempcrs
 {
 	int	x;
 	int	y;
-	int	size;
 }				t_tempcrs;
 
 /*

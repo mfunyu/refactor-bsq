@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 23:04:46 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:06:29 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	set_tempcrs(t_tempcrs *p_tempcrs)
 {
 	p_tempcrs->y = 0;
 	p_tempcrs->x = 0;
-	p_tempcrs->size = 0;
 }
 
 int	is_empty_spot_on_map(char **map, int x, int y, t_info *p_info)
