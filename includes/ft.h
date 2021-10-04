@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 23:14:37 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:20:17 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,6 @@
 # define SUCCESS 1
 # define FAIL 0
 # define FT_ERR_MAP "map error\n"
-
-typedef struct s_bsq
-{
-	int			x;
-	int			y;
-	int			size;
-}				t_bsq;
 
 typedef struct s_info
 {
