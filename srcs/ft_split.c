@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 15:59:31 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/02 11:43:54 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 21:08:24 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,15 @@ void	ft_update_in_word(int i)
 		g_end = i;
 }
 
-void	ft_add_last_word(char **res, char *str, int i)
+int	ft_add_last_word(char **res, char *str, int i)
 {
 	int	j;
 
 	if (g_state == IN)
 	{
 		res[g_word_index] = malloc(sizeof(char) * ((i - g_start) + 1));
+		if (!res[g_word_index])
+			return (FAIL);
 		j = -1;
 		while (g_start <= i)
 			res[g_word_index][++j] = str[g_start++];
@@ -82,6 +84,7 @@ void	ft_add_last_word(char **res, char *str, int i)
 	g_start = 0;
 	g_end = 0;
 	g_state = 0;
+	return (SUCCESS);
 }
 
 char	**ft_split(char *str, char *charset)
@@ -91,6 +94,8 @@ char	**ft_split(char *str, char *charset)
 	int		j;
 
 	res = malloc(sizeof(char *) * (ft_get_wc(str, charset) + 1));
+	if (!res)
+		return (NULL);
 	i = -1;
 	while (str[++i])
 	{
@@ -100,6 +105,8 @@ char	**ft_split(char *str, char *charset)
 				continue ;
 			g_state = OUT;
 			res[g_word_index] = malloc(sizeof(char) * ((g_end - g_start) + 1));
+			if (!res[g_word_index])
+				return (NULL);
 			j = -1;
 			while (g_start <= g_end)
 				res[g_word_index][++j] = str[g_start++];
@@ -109,6 +116,7 @@ char	**ft_split(char *str, char *charset)
 		else
 			ft_update_in_word(i);
 	}
-	ft_add_last_word(res, str, i);
+	if (ft_add_last_word(res, str, i) == FAIL)
+		return (NULL);
 	return (res);
 }

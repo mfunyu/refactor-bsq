@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:24:06 by mfunyu            #+#    #+#             */
-/*   Updated: 2021/10/04 16:24:12 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 21:09:04 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	init_t_info(t_info *info, char **map, char *content, int len)
 
 	row_size_digits = len - 3;
 	num = malloc(sizeof(char) * (row_size_digits + 1));
+	if (!num)
+		exit(EXIT_FAILURE);
 	i = -1;
 	while (++i < row_size_digits)
 		num[i] = content[i];
