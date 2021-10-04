@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 13:46:10 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/02 18:16:20 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 21:53:39 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,18 @@
 
 char	*ft_strdup(char *src)
 {
-	char	*res;
+	char	*dst;
 	int		i;
 
-	i = 0;
-	while (src[i])
-		i++;
-	res = (char *)malloc(i + 1);
-	if (!res)
+	dst = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (!dst)
 		return (NULL);
 	i = 0;
 	while (src[i])
 	{
-		res[i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	res[i] = '\0';
-	return (res);
+	dst[i] = '\0';
+	return (dst);
 }
