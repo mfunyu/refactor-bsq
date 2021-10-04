@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 23:27:30 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:34:18 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	check_for_square(char **map, t_coord *p_coord, t_info *p_info)
 	}
 }
 
-void	ft_change_map(char **map, t_info *p_info)
+void	place_square_on_map(char **map, t_info *p_info)
 {
 	int		x;
 	int		y;
@@ -68,7 +68,6 @@ void	ft_change_map(char **map, t_info *p_info)
 		}
 		y++;
 	}
-	put_map(map, p_info);
 }
 
 void	generate_answer(char **map, t_info *p_info)
@@ -92,6 +91,7 @@ void	generate_answer(char **map, t_info *p_info)
 		}
 		p_coord->y++;
 	}
-	ft_change_map(map, p_info);
 	free(p_coord);
+	place_square_on_map(map, p_info);
+	put_map(map, p_info);
 }
