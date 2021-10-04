@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:43:19 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 22:28:01 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,19 +55,6 @@ extern int		g_max;
 extern int		g_col;
 extern int		g_row;
 
-/*
-** puts
-*/
-void			ft_putchar_fd(char c, int fd);
-void			ft_putstr_fd(char *str, int fd);
-void			ft_puterror(char *str);
-
-int				ft_strlen(char *str);
-int				ft_is_printable(char c);
-char			*ft_strdup(char *src);
-char			*ft_strjoin(char *s1, char *s2);
-char			**ft_split(char *str, char *charset);
-int				ft_atoi(char *str);
 int				check_first_line(char *content, int len);
 int				init_t_info(t_info *info, char **map, char *line, int len);
 int				check_map_structure(char **map, t_info *info);
@@ -78,5 +65,20 @@ void			generate_correct_map(char **map, t_info *p_info);
 void			set_bsq(t_bsq *p_bsq);
 
 char	*read_from_fd(int fd);
+
+/*
+** utils
+*/
+int				ft_atoi(char *str);
+int				ft_is_printable(char c);
+
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(char *str, int fd);
+void			ft_puterror(char *str);
+
+char			**ft_split(char *str, char *charset);
+char			*ft_strdup(char *src);
+char			*ft_strjoin(char *s1, char *s2);
+int				ft_strlen(char *str);
 
 #endif
