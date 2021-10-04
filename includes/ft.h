@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 23:25:34 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 02:06:29 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ int				is_empty_spot_on_map(char **map, int x, int y, t_info *p_info);
 void			generate_answer(char **map, t_info *p_info);
 
 char	*read_from_fd(int fd);
+void	free_map(char ***map);
 
 void	put_map(char **map, t_info *p_info);
 

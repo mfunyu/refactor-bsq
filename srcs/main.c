@@ -6,25 +6,11 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 23:02:42 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 02:06:00 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
-
-void	free_map(char ***map)
-{
-	long int	i;
-
-	i = 0;
-	while ((*map)[i])
-	{
-		free((*map)[i]);
-		i++;
-	}
-	free(*map);
-	*map = NULL;
-}
 
 int	get_len_first_line(char *content)
 {
