@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 15:59:31 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 02:50:27 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 02:53:36 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int		g_word_index = 0;
 int		g_start = 0;
 int		g_end = 0;
-int		g_state = 0;
 
 int	is_in_charset(char c, char *charset)
 {
@@ -73,27 +72,29 @@ int	set_one_word(char **word_lst, char *str, int start, int end)
 char	**ft_split(char *str, char *charset)
 {
 	char	**word_lst;
+	int		inside_word;
 	int		i;
 
 	word_lst = malloc(sizeof(char *) * (get_wc(str, charset) + 1));
 	if (!word_lst)
 		return (NULL);
 	i = -1;
+	inside_word = 0;
 	while (str[++i])
 	{
 		if (is_in_charset(str[i], charset))
 		{
-			if (g_state == OUT)
+			if (!inside_word)
 				continue ;
-			g_state = OUT;
+			inside_word = 0;
 			set_one_word(word_lst, str, g_start, g_end);
 			g_word_index++;
 		}
 		else
 		{
-			if (g_state == OUT)
+			if (!inside_word)
 			{
-				g_state = IN;
+				inside_word = 1;
 				g_start = i;
 				g_end = i;
 			}
@@ -101,7 +102,7 @@ char	**ft_split(char *str, char *charset)
 				g_end = i;
 		}
 	}
-	if (g_state == IN)
+	if (inside_word)
 	{
 		set_one_word(word_lst, str, g_start, i);
 		g_word_index++;
@@ -110,6 +111,5 @@ char	**ft_split(char *str, char *charset)
 	g_word_index = 0;
 	g_start = 0;
 	g_end = 0;
-	g_state = 0;
 	return (word_lst);
 }
