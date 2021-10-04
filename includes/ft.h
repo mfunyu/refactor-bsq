@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:34:50 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:43:19 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,13 @@ extern int		g_max;
 extern int		g_col;
 extern int		g_row;
 
-void			ft_putchar(char c);
-void			ft_putstr(char *str);
+/*
+** puts
+*/
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(char *str, int fd);
 void			ft_puterror(char *str);
+
 int				ft_strlen(char *str);
 int				ft_is_printable(char c);
 char			*ft_strdup(char *src);

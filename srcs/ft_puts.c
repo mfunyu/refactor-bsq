@@ -3,28 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: louisnop <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:46:13 by louisnop          #+#    #+#             */
-/*   Updated: 2020/01/30 04:03:32 by louisnop         ###   ########.fr       */
+/*   Updated: 2021/10/04 16:39:39 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-void	ft_putchar(char c)
+void	ft_putchar_fd(char c, int fd)
 {
-	write(1, &c, 1);
+	write(fd, &c, 1);
 }
 
-void	ft_putstr(char *str)
+void	ft_putstr_fd(char *str, int fd)
 {
 	while (*str)
-		ft_putchar(*str++);
+		ft_putchar_fd(*str++, fd);
 }
 
 void	ft_puterror(char *str)
 {
-	while (*str)
-		write(2, str++, 1);
+	ft_putstr_fd(str, STDERR_FILENO);
 }

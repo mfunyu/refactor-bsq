@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:35:24 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:42:19 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ void	ft_put_map(char **map, t_info *p_info)
 		x = 0;
 		while (x < p_info->map_width)
 		{
-			write(1, &map[y][x], 1);
+			ft_putchar_fd(map[y][x], STDOUT_FILENO);
 			x++;
 		}
-		write(1, "\n", 1);
+		ft_putchar_fd('\n', STDOUT_FILENO);
 		y++;
 	}
 }

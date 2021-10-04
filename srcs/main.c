@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:20:18 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:42:39 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ int	main(int argc, char *argv[])
 			ft_puterror(FT_ERR_MAP);
 		i++;
 		if (i != argc)
-			ft_putstr("\n");
+			ft_putchar_fd('\n', STDOUT_FILENO);
 	}
 	return (0);
 }
