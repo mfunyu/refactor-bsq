@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:06:56 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:15:39 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_put_map(char **map, t_info *p_info)
 	while (i < p_info->map_height)
 	{
 		j = 0;
-		while (j < ft_map_colsize(map))
+		while (j < p_info->map_width)
 		{
 			write(1, &map[i][j], 1);
 			j++;
@@ -111,7 +111,7 @@ void	generate_correct_map(char **map, t_info *p_info)
 	while (p_tempcrs->row < p_info->map_height)
 	{
 		p_tempcrs->col = 0;
-		while (p_tempcrs->col < ft_map_colsize(map))
+		while (p_tempcrs->col < p_info->map_width)
 		{
 			if (ft_check_1(map, p_tempcrs->col,
 					p_tempcrs->row, p_info) == 1)

@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:06:56 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:16:34 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_bsq
 typedef struct s_info
 {
 	int		map_height;
+	int		map_width;
 	char	empty;
 	char	obstacle;
 	char	full;
@@ -64,14 +65,13 @@ char			*ft_strjoin(char *s1, char *s2);
 char			**ft_split(char *str, char *charset);
 int				ft_atoi(char *str);
 int				check_first_line(char *content, int len);
-int				parse_first_line(t_info *info, char *line, int len);
+int				parse_first_line(t_info *info, char **map, char *line, int len);
 int				check_map_structure(char **map, t_info *info);
 int				check_newline_at_eof(char *content);
 void			set_tempcrs(t_tempcrs *p_tempcrs);
 int				ft_check_1(char **map, int col, int row, t_info *p_info);
 void			generate_correct_map(char **map, t_info *p_info);
 void			set_bsq(t_bsq *p_bsq);
-int				ft_map_colsize(char **map);
 
 char	*read_from_fd(int fd);
 

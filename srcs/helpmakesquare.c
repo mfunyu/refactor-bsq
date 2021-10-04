@@ -6,23 +6,11 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:06:56 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:15:14 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
-
-int	ft_map_colsize(char **map)
-{
-	int	count;
-
-	count = 0;
-	while (map[0][count])
-	{
-		count++;
-	}
-	return (count);
-}
 
 void	set_tempcrs(t_tempcrs *p_tempcrs)
 {
@@ -33,7 +21,7 @@ void	set_tempcrs(t_tempcrs *p_tempcrs)
 
 int	ft_check_1(char **map, int col, int row, t_info *p_info)
 {
-	if (col == ft_map_colsize(map))
+	if (col == p_info->map_width)
 	{
 		return (0);
 	}

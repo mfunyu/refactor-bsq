@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:47:47 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:06:56 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:16:28 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	check_first_line(char *content, int len)
 	return (SUCCESS);
 }
 
-int	parse_first_line(t_info *info, char *content, int len)
+int	parse_first_line(t_info *info, char **map, char *content, int len)
 {
 	int		i;
 	char	*num;
@@ -50,6 +50,7 @@ int	parse_first_line(t_info *info, char *content, int len)
 		num[i] = content[i];
 	num[i] = '\0';
 	info->map_height = ft_atoi(num);
+	info->map_width = ft_strlen(map[0]);
 	info->empty = content[row_size_digits];
 	info->obstacle = content[row_size_digits + 1];
 	info->full = content[row_size_digits + 2];
