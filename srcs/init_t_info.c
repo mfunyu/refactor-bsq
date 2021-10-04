@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 16:24:06 by mfunyu            #+#    #+#             */
-/*   Updated: 2021/10/04 21:09:04 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:27:44 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ int	init_t_info(t_info *info, char **map, char *content, int len)
 	info->empty = content[row_size_digits];
 	info->obstacle = content[row_size_digits + 1];
 	info->full = content[row_size_digits + 2];
+	info->max_sq_size = 0;
+	info->sq_x_coord = 0;
+	info->sq_y_coord = 0;
 	free(num);
 	return (SUCCESS);
 }

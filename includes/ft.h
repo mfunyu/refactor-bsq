@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 23:20:17 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:25:34 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ typedef struct s_info
 	char	empty;
 	char	obstacle;
 	char	full;
+	int		max_sq_size;
+	int		sq_x_coord;
+	int		sq_y_coord;
 }				t_info;
 
 typedef struct s_coord
@@ -39,13 +42,6 @@ typedef struct s_coord
 	int	x;
 	int	y;
 }				t_coord;
-
-/*
-** global vars
-*/
-extern int		g_max;
-extern int		g_col;
-extern int		g_row;
 
 int				check_first_line(char *content, int len);
 int				init_t_info(t_info *info, char **map, char *line, int len);
