@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 13:41:41 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/02 18:19:35 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 21:55:15 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*res;
+	char	*dst;
 	int		i;
 	int		j;
 	int		size;
 
 	size = ft_strlen(s1) + ft_strlen(s2) + 1;
-	res = malloc(sizeof(char) * size);
-	if (!res)
+	dst = malloc(sizeof(char) * size);
+	if (!dst)
 		return (NULL);
 	i = 0;
 	while (s1[i])
 	{
-		res[i] = s1[i];
+		dst[i] = s1[i];
 		i++;
 	}
 	j = 0;
 	while (s2[j])
-		res[i++] = s2[j++];
-	res[i] = '\0';
-	return (res);
+		dst[i++] = s2[j++];
+	dst[i] = '\0';
+	return (dst);
 }
