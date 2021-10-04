@@ -6,24 +6,28 @@
 #    By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/28 13:12:23 by louisnop          #+#    #+#              #
-#    Updated: 2021/10/04 00:37:58 by mfunyu           ###   ########.fr        #
+#    Updated: 2021/10/05 03:40:17 by mfunyu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bsq
 SRCSDIR = srcs/
-SRCS = $(shell ls srcs | grep .c)
-# SRCS = main.c \
-# 		ft_puts.c \
-# 		ft_utility.c \
-# 		ft_strdup.c \
-# 		ft_strjoin.c \
-# 		ft_split.c \
-# 		ft_atoi.c \
-# 		ft_info.c \
-# 		ft_validate_map.c \
-# 		makesquare2.c \
-# 		helpmakesquare.c
+SRCS = main.c \
+		check_first_line.c \
+		check_map_structure.c \
+		free.c \
+		generate_answer.c \
+		init_t_info.c \
+		is_empty_spot_on_map.c \
+		put_map.c \
+		read_from_fd.c \
+		utils/ft_atoi.c \
+		utils/ft_is_printable.c \
+		utils/ft_puts.c \
+		utils/ft_split.c \
+		utils/ft_strdup.c \
+		utils/ft_strjoin.c \
+		utils/ft_strlen.c
 OBJS = $(SRCS:%.c=$(SRCSDIR)%.o)
 INCLUDES = includes
 
