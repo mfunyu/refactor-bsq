@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:20:25 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:34:50 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ typedef struct s_info
 
 typedef struct s_tempcrs
 {
-	int	col;
-	int	row;
+	int	x;
+	int	y;
 	int	size;
 }				t_tempcrs;
 
@@ -69,7 +69,7 @@ int				init_t_info(t_info *info, char **map, char *line, int len);
 int				check_map_structure(char **map, t_info *info);
 int				check_newline_at_eof(char *content);
 void			set_tempcrs(t_tempcrs *p_tempcrs);
-int				ft_check_1(char **map, int col, int row, t_info *p_info);
+int				ft_check_1(char **map, int x, int y, t_info *p_info);
 void			generate_correct_map(char **map, t_info *p_info);
 void			set_bsq(t_bsq *p_bsq);
 

@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:15:14 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:34:54 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	set_tempcrs(t_tempcrs *p_tempcrs)
 {
-	p_tempcrs->row = 0;
-	p_tempcrs->col = 0;
+	p_tempcrs->y = 0;
+	p_tempcrs->x = 0;
 	p_tempcrs->size = 0;
 }
 
-int	ft_check_1(char **map, int col, int row, t_info *p_info)
+int	ft_check_1(char **map, int x, int y, t_info *p_info)
 {
-	if (col == p_info->map_width)
+	if (x == p_info->map_width)
 	{
 		return (0);
 	}
-	if (row == p_info->map_height)
+	if (y == p_info->map_height)
 	{
 		return (0);
 	}
-	if (map[row][col] == p_info->obstacle || map[row][col] == '\0')
+	if (map[y][x] == p_info->obstacle || map[y][x] == '\0')
 	{
 		return (0);
 	}
