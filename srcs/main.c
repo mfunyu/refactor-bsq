@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 01:11:04 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 15:35:55 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,18 @@ int	check_input_and_generate_map(char *content)
 {
 	char	**map;
 	t_info	info;
-	int		len;
+	int		first_line_len;
 
 	if (check_newline_at_eof(content) == FAIL)
 		return (FAIL);
-	len = get_len_first_line(content);
-	if (len < 4)
+	first_line_len = get_len_first_line(content);
+	if (first_line_len < 4)
 		return (FAIL);
-	if (check_first_line(content, len) == FAIL)
+	if (check_first_line(content, first_line_len) == FAIL)
 		return (FAIL);
-	if (parse_first_line(&info, content, len) == FAIL)
+	if (parse_first_line(&info, content, first_line_len) == FAIL)
 		return (FAIL);
-	map = ft_split(content, "\n");
+	map = ft_split(content + first_line_len, "\n");
 	if (!map)
 		return (FAIL);
 	free(content);

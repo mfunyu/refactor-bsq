@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:48:35 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/03 17:34:09 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 15:28:34 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_map_chars(char **map, t_info *info)
 	int	x;
 	int	y;
 
-	y = 1;
+	y = 0;
 	while (map[y])
 	{
 		x = 0;
@@ -37,15 +37,15 @@ int	check_len_rows_cols(char **map, t_info *info)
 	int	i;
 	int	len;
 
-	i = 1;
-	len = ft_strlen(map[1]);
+	i = 0;
+	len = ft_strlen(map[0]);
 	while (map[i])
 	{
 		if (len != ft_strlen(map[i]))
 			return (FAIL);
 		i++;
 	}
-	if (i - 1 != info->num_rows)
+	if (i != info->num_rows)
 		return (FAIL);
 	return (SUCCESS);
 }
@@ -64,7 +64,7 @@ int	check_newline_at_eof(char *content)
 
 int	check_map_structure(char **map, t_info *info)
 {
-	if (!map[1])
+	if (!map[0])
 		return (FAIL);
 	if (check_map_chars(map, info) == FAIL)
 		return (FAIL);

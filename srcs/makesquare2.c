@@ -6,15 +6,15 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/03 17:39:49 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 15:47:15 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-extern int	g_max;
-extern int	g_col;
-extern int	g_row;
+int		g_max;
+int		g_col;
+int		g_row;
 
 int	ft_check_2(char **map, t_tempcrs *p_tempcrs, t_info *p_info)
 {
@@ -61,8 +61,8 @@ void	ft_put_map(char **map, t_info *p_info)
 	int	i;
 	int	j;
 
-	i = 1;
-	while (i <= p_info->num_rows)
+	i = 0;
+	while (i < p_info->num_rows)
 	{
 		j = 0;
 		while (j < ft_map_colsize(map))
@@ -108,7 +108,7 @@ void	generate_correct_map(char **map, t_info *p_info)
 	g_row = 0;
 	p_tempcrs = malloc(sizeof(t_tempcrs));
 	set_tempcrs(p_tempcrs);
-	while (p_tempcrs->row <= p_info->num_rows)
+	while (p_tempcrs->row < p_info->num_rows)
 	{
 		p_tempcrs->col = 0;
 		while (p_tempcrs->col < ft_map_colsize(map))
