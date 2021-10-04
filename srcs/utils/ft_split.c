@@ -6,13 +6,12 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 15:59:31 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 02:53:36 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 03:00:39 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int		g_word_index = 0;
 int		g_start = 0;
 int		g_end = 0;
 
@@ -56,16 +55,16 @@ int	set_one_word(char **word_lst, char *str, int start, int end)
 	int		i;
 
 	i = 0;
-	word_lst[g_word_index] = malloc(sizeof(char) * ((end - start) + 1));
-	if (!word_lst[g_word_index])
+	*word_lst = malloc(sizeof(char) * ((end - start) + 1));
+	if (!(*word_lst))
 		return (FAIL);
 	while (start <= end)
 	{
-		word_lst[g_word_index][i] = str[start];
+		(*word_lst)[i] = str[start];
 		start++;
 		i++;
 	}
-	word_lst[g_word_index][i] = '\0';
+	(*word_lst)[i] = '\0';
 	return (SUCCESS);
 }
 
@@ -73,6 +72,7 @@ char	**ft_split(char *str, char *charset)
 {
 	char	**word_lst;
 	int		inside_word;
+	int		word_index;
 	int		i;
 
 	word_lst = malloc(sizeof(char *) * (get_wc(str, charset) + 1));
@@ -80,6 +80,7 @@ char	**ft_split(char *str, char *charset)
 		return (NULL);
 	i = -1;
 	inside_word = 0;
+	word_index = 0;
 	while (str[++i])
 	{
 		if (is_in_charset(str[i], charset))
@@ -87,8 +88,8 @@ char	**ft_split(char *str, char *charset)
 			if (!inside_word)
 				continue ;
 			inside_word = 0;
-			set_one_word(word_lst, str, g_start, g_end);
-			g_word_index++;
+			set_one_word(word_lst + word_index, str, g_start, g_end);
+			word_index++;
 		}
 		else
 		{
@@ -104,11 +105,9 @@ char	**ft_split(char *str, char *charset)
 	}
 	if (inside_word)
 	{
-		set_one_word(word_lst, str, g_start, i);
-		g_word_index++;
+		set_one_word(word_lst + word_index, str, g_start, i);
 	}
-	word_lst[g_word_index] = 0;
-	g_word_index = 0;
+	word_lst[word_index] = NULL;
 	g_start = 0;
 	g_end = 0;
 	return (word_lst);
