@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 22:29:32 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:02:42 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,33 @@ int		g_max;
 int		g_col;
 int		g_row;
 
-int	ft_check_2(char **map, t_tempcrs *p_tempcrs, t_info *p_info)
+int	is_square_placable(char **map, t_tempcrs *p_tempcrs, t_info *p_info)
 {
 	int	i;
 
 	i = 0;
 	while (i <= p_tempcrs->size)
 	{
-		if (ft_check_1(map, p_tempcrs->x + i,
-				p_tempcrs->y + p_tempcrs->size, p_info) == 0)
-		{
+		if (!is_empty_spot_on_map(map, p_tempcrs->x + i,
+				p_tempcrs->y + p_tempcrs->size, p_info))
 			return (0);
-		}
 		i++;
 	}
 	i = 0;
 	while (i <= p_tempcrs->size)
 	{
-		if (ft_check_1(map, p_tempcrs->x + p_tempcrs->size,
-				p_tempcrs->y + i, p_info) == 0)
+		if (!is_empty_spot_on_map(map, p_tempcrs->x + p_tempcrs->size,
+				p_tempcrs->y + i, p_info))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-void	ft_check_3(char **map, t_tempcrs *p_tempcrs, t_info *p_info)
+void	check_for_square(char **map, t_tempcrs *p_tempcrs, t_info *p_info)
 {
 	p_tempcrs->size = 0;
-	while (ft_check_2(map, p_tempcrs, p_info) == 1)
+	while (is_square_placable(map, p_tempcrs, p_info))
 	{
 		p_tempcrs->size++;
 	}
@@ -81,7 +79,7 @@ void	ft_change_map(char **map, t_info *p_info)
 	free(p_bsq);
 }
 
-void	generate_correct_map(char **map, t_info *p_info)
+void	generate_answer(char **map, t_info *p_info)
 {
 	t_tempcrs	*p_tempcrs;
 
@@ -97,10 +95,9 @@ void	generate_correct_map(char **map, t_info *p_info)
 		p_tempcrs->x = 0;
 		while (p_tempcrs->x < p_info->map_width)
 		{
-			if (ft_check_1(map, p_tempcrs->x,
-					p_tempcrs->y, p_info) == 1)
+			if (is_empty_spot_on_map(map, p_tempcrs->x, p_tempcrs->y, p_info))
 			{
-				ft_check_3(map, p_tempcrs, p_info);
+				check_for_square(map, p_tempcrs, p_info);
 			}
 			p_tempcrs->x++;
 		}

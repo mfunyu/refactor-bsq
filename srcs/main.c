@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:56:09 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:02:42 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	check_input_and_generate_map(char *content)
 	free(content);
 	if (check_map_structure(map, &info) == FAIL)
 		return (FAIL);
-	generate_correct_map(map, &info);
+	generate_answer(map, &info);
 	free_map(&map);
 	return (SUCCESS);
 }
