@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 15:59:31 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 03:19:51 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 03:34:26 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	set_one_word(char **word_lst, char *str, int start, int end)
 	return (SUCCESS);
 }
 
-void	loop_check_str(char **word_lst, char *str, char *charset)
+int	loop_check_str(char **word_lst, char *str, char *charset)
 {
 	int		inside_word;
 	int		word_head;
@@ -73,7 +73,6 @@ void	loop_check_str(char **word_lst, char *str, char *charset)
 
 	i = -1;
 	inside_word = 0;
-	word_head = 0;
 	while (str[++i])
 	{
 		if (is_in_charset(str[i], charset))
@@ -81,7 +80,8 @@ void	loop_check_str(char **word_lst, char *str, char *charset)
 			if (!inside_word)
 				continue ;
 			inside_word = 0;
-			set_one_word(word_lst++, str, word_head, i - 1);
+			if (set_one_word(word_lst++, str, word_head, i - 1) == FAIL)
+				return (FAIL);
 		}
 		else if (!inside_word)
 		{
@@ -89,10 +89,9 @@ void	loop_check_str(char **word_lst, char *str, char *charset)
 			word_head = i;
 		}
 	}
-	if (inside_word)
-	{
-		set_one_word(word_lst, str, word_head, i);
-	}
+	if (inside_word && set_one_word(word_lst, str, word_head, i) == FAIL)
+		return (FAIL);
+	return (SUCCESS);
 }
 
 char	**ft_split(char *str, char *charset)
@@ -104,7 +103,8 @@ char	**ft_split(char *str, char *charset)
 	word_lst = malloc(sizeof(char *) * (words_count + 1));
 	if (!word_lst)
 		return (NULL);
-	loop_check_str(word_lst, str, charset);
+	if (loop_check_str(word_lst, str, charset) == FAIL)
+		return (NULL);
 	word_lst[words_count] = NULL;
 	return (word_lst);
 }
