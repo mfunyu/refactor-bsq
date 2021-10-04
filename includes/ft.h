@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 22:28:01 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 22:29:21 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void			generate_correct_map(char **map, t_info *p_info);
 void			set_bsq(t_bsq *p_bsq);
 
 char	*read_from_fd(int fd);
+
+void	put_map(char **map, t_info *p_info);
 
 /*
 ** utils

@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 21:10:57 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 22:29:32 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,25 +56,6 @@ void	ft_check_3(char **map, t_tempcrs *p_tempcrs, t_info *p_info)
 	}
 }
 
-void	ft_put_map(char **map, t_info *p_info)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < p_info->map_height)
-	{
-		x = 0;
-		while (x < p_info->map_width)
-		{
-			ft_putchar_fd(map[y][x], STDOUT_FILENO);
-			x++;
-		}
-		ft_putchar_fd('\n', STDOUT_FILENO);
-		y++;
-	}
-}
-
 void	ft_change_map(char **map, t_info *p_info)
 {
 	int		x;
@@ -96,7 +77,7 @@ void	ft_change_map(char **map, t_info *p_info)
 		}
 		y++;
 	}
-	ft_put_map(map, p_info);
+	put_map(map, p_info);
 	free(p_bsq);
 }
 
