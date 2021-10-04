@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 15:59:31 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 02:49:15 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 02:50:27 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,6 @@ int	set_one_word(char **word_lst, char *str, int start, int end)
 	return (SUCCESS);
 }
 
-int	add_last_word(char **word_lst, char *str, int i)
-{
-	if (g_state == IN)
-	{
-		set_one_word(word_lst, str, g_start, i);
-		g_word_index++;
-	}
-	word_lst[g_word_index] = 0;
-	g_word_index = 0;
-	g_start = 0;
-	g_end = 0;
-	g_state = 0;
-	return (SUCCESS);
-}
-
 char	**ft_split(char *str, char *charset)
 {
 	char	**word_lst;
@@ -116,7 +101,15 @@ char	**ft_split(char *str, char *charset)
 				g_end = i;
 		}
 	}
-	if (add_last_word(word_lst, str, i) == FAIL)
-		return (NULL);
+	if (g_state == IN)
+	{
+		set_one_word(word_lst, str, g_start, i);
+		g_word_index++;
+	}
+	word_lst[g_word_index] = 0;
+	g_word_index = 0;
+	g_start = 0;
+	g_end = 0;
+	g_state = 0;
 	return (word_lst);
 }
