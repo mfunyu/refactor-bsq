@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 23:07:14 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 23:14:37 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ typedef struct s_info
 	char	full;
 }				t_info;
 
-typedef struct s_tempcrs
+typedef struct s_coord
 {
 	int	x;
 	int	y;
-}				t_tempcrs;
+}				t_coord;
 
 /*
 ** global vars
@@ -58,7 +58,7 @@ int				check_first_line(char *content, int len);
 int				init_t_info(t_info *info, char **map, char *line, int len);
 int				check_map_structure(char **map, t_info *info);
 int				check_newline_at_eof(char *content);
-void			set_tempcrs(t_tempcrs *p_tempcrs);
+void			set_coord(t_coord *p_coord);
 int				is_empty_spot_on_map(char **map, int x, int y, t_info *p_info);
 void			generate_answer(char **map, t_info *p_info);
 
