@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:48:35 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:06:56 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:22:57 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	check_map_chars(char **map, t_info *info)
 	return (SUCCESS);
 }
 
-int	check_len_rows_cols(char **map, t_info *info)
+int	check_map_shape_size(char **map, t_info *info)
 {
 	int	i;
 	int	len;
@@ -68,7 +68,7 @@ int	check_map_structure(char **map, t_info *info)
 		return (FAIL);
 	if (check_map_chars(map, info) == FAIL)
 		return (FAIL);
-	if (check_len_rows_cols(map, info) == FAIL)
+	if (check_map_shape_size(map, info) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }

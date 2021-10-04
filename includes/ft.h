@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:16:34 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/04 16:20:25 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char			*ft_strjoin(char *s1, char *s2);
 char			**ft_split(char *str, char *charset);
 int				ft_atoi(char *str);
 int				check_first_line(char *content, int len);
-int				parse_first_line(t_info *info, char **map, char *line, int len);
+int				init_t_info(t_info *info, char **map, char *line, int len);
 int				check_map_structure(char **map, t_info *info);
 int				check_newline_at_eof(char *content);
 void			set_tempcrs(t_tempcrs *p_tempcrs);
