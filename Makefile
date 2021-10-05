@@ -6,7 +6,7 @@
 #    By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/28 13:12:23 by louisnop          #+#    #+#              #
-#    Updated: 2021/10/05 15:55:26 by mfunyu           ###   ########.fr        #
+#    Updated: 2021/10/05 16:08:57 by mfunyu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS = main.c \
 		is_empty_spot_on_map.c \
 		put_map.c \
 		read_from_fd.c \
+		check_input_and_generate_map.c \
 		apply_square_on_map.c \
 		search_square.c \
 		utils/ft_atoi.c \

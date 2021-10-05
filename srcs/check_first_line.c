@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_info.c                                          :+:      :+:    :+:   */
+/*   check_first_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:47:47 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/04 16:23:59 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 16:03:25 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	check_first_line(char *content, int len)
 	int		obstacle;
 	int		full;
 
+	if (len < 4)
+		return (FAIL);
 	i = -1;
 	while (++i < len - 3)
 		if (content[i] < '0' || content[i] > '9')
