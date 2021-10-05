@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 02:06:00 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 15:59:48 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_input_and_generate_map(char *content)
 	t_info	info;
 	int		first_line_len;
 
-	if (check_newline_at_eof(content) == FAIL)
+	if (content[ft_strlen(content) - 1] != '\n')
 		return (FAIL);
 	first_line_len = get_len_first_line(content);
 	if (first_line_len < 4)

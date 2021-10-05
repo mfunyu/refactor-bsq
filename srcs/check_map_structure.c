@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:48:35 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 14:48:24 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 15:57:47 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,6 @@ int	check_map_shape_size(char **map, t_info *info)
 		y++;
 	}
 	if (y != info->map_height)
-		return (FAIL);
-	return (SUCCESS);
-}
-
-int	check_newline_at_eof(char *content)
-{
-	int		i;
-
-	i = 0;
-	while (content[i] != '\0')
-		i++;
-	if (content[i - 1] != '\n')
 		return (FAIL);
 	return (SUCCESS);
 }
