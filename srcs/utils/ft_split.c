@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 15:59:31 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 03:34:26 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 15:47:10 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ int	is_in_charset(char c, char *charset)
 	return (0);
 }
 
-int	get_wc(char *str, char *charset)
+int	get_words_count(char *str, char *charset)
 {
-	int	wc;
+	int	words_count;
 	int	inside_word;
 
-	wc = 0;
+	words_count = 0;
 	inside_word = 0;
 	while (*str)
 	{
@@ -40,32 +40,34 @@ int	get_wc(char *str, char *charset)
 		else if (!inside_word)
 		{
 			inside_word = 1;
-			++wc;
+			words_count++;
 		}
-		++str;
+		str++;
 	}
-	return (wc);
+	return (words_count);
 }
 
-int	set_one_word(char **word_lst, char *str, int start, int end)
+int	set_one_word(char **words_lst, char *str, int start, int end)
 {
+	char	*word_to_set;
 	int		i;
 
 	i = 0;
-	*word_lst = malloc(sizeof(char) * ((end - start) + 1));
-	if (!(*word_lst))
+	*words_lst = malloc(sizeof(char) * ((end - start) + 1));
+	word_to_set = *words_lst;
+	if (!word_to_set)
 		return (FAIL);
 	while (start <= end)
 	{
-		(*word_lst)[i] = str[start];
+		word_to_set[i] = str[start];
 		start++;
 		i++;
 	}
-	(*word_lst)[i] = '\0';
+	word_to_set[i] = '\0';
 	return (SUCCESS);
 }
 
-int	loop_check_str(char **word_lst, char *str, char *charset)
+int	loop_check_str(char **words_lst, char *str, char *charset)
 {
 	int		inside_word;
 	int		word_head;
@@ -80,7 +82,7 @@ int	loop_check_str(char **word_lst, char *str, char *charset)
 			if (!inside_word)
 				continue ;
 			inside_word = 0;
-			if (set_one_word(word_lst++, str, word_head, i - 1) == FAIL)
+			if (set_one_word(words_lst++, str, word_head, i - 1) == FAIL)
 				return (FAIL);
 		}
 		else if (!inside_word)
@@ -89,22 +91,22 @@ int	loop_check_str(char **word_lst, char *str, char *charset)
 			word_head = i;
 		}
 	}
-	if (inside_word && set_one_word(word_lst, str, word_head, i) == FAIL)
+	if (inside_word && set_one_word(words_lst, str, word_head, i) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }
 
 char	**ft_split(char *str, char *charset)
 {
-	char	**word_lst;
+	char	**words_lst;
 	int		words_count;
 
-	words_count = get_wc(str, charset);
-	word_lst = malloc(sizeof(char *) * (words_count + 1));
-	if (!word_lst)
+	words_count = get_words_count(str, charset);
+	words_lst = malloc(sizeof(char *) * (words_count + 1));
+	if (!words_lst)
 		return (NULL);
-	if (loop_check_str(word_lst, str, charset) == FAIL)
+	if (loop_check_str(words_lst, str, charset) == FAIL)
 		return (NULL);
-	word_lst[words_count] = NULL;
-	return (word_lst);
+	words_lst[words_count] = NULL;
+	return (words_lst);
 }
