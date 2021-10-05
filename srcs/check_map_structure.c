@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:48:35 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 15:57:47 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 16:11:06 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int	check_map_chars(char **map, t_info *info)
+static int	_check_map_chars(char **map, t_info *info)
 {
 	int	x;
 	int	y;
@@ -38,7 +38,7 @@ int	check_map_chars(char **map, t_info *info)
 	return (SUCCESS);
 }
 
-int	check_map_shape_size(char **map, t_info *info)
+static int	_check_map_shape_size(char **map, t_info *info)
 {
 	int	y;
 
@@ -56,9 +56,9 @@ int	check_map_shape_size(char **map, t_info *info)
 
 int	check_map_structure(char **map, t_info *info)
 {
-	if (check_map_chars(map, info) == FAIL)
+	if (_check_map_chars(map, info) == FAIL)
 		return (FAIL);
-	if (check_map_shape_size(map, info) == FAIL)
+	if (_check_map_shape_size(map, info) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }

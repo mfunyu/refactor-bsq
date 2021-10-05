@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 16:05:06 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 16:13:44 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int	map_from_stdin(void)
+int	load_map_from_stdin(void)
 {
 	char	*content;
 
@@ -24,7 +24,7 @@ int	map_from_stdin(void)
 	return (SUCCESS);
 }
 
-int	map_from_file(char *filename)
+int	load_map_from_file(char *filename)
 {
 	int		fd;
 	char	*content;
@@ -47,14 +47,14 @@ int	main(int argc, char *argv[])
 
 	if (argc <= 1)
 	{
-		if (map_from_stdin() == FAIL)
+		if (load_map_from_stdin() == FAIL)
 			ft_puterror(FT_ERR_MAP);
 		return (0);
 	}
 	i = 1;
 	while (i < argc)
 	{
-		if (map_from_file(argv[i]) == FAIL)
+		if (load_map_from_file(argv[i]) == FAIL)
 			ft_puterror(FT_ERR_MAP);
 		i++;
 		if (i != argc)

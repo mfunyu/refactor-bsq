@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 15:52:38 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 16:11:41 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int	is_square_placable(char **map, t_coord *p_coord,
+static int	_is_square_placable(char **map, t_coord *p_coord,
 							int sq_size, t_info *p_info)
 {
 	int	i;
@@ -41,7 +41,7 @@ void	search_square(char **map, t_coord *p_coord, t_info *p_info)
 	int	sq_size;
 
 	sq_size = 0;
-	while (is_square_placable(map, p_coord, sq_size, p_info))
+	while (_is_square_placable(map, p_coord, sq_size, p_info))
 	{
 		sq_size++;
 	}

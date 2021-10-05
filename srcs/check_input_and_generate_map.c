@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 16:03:06 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 16:11:19 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int	get_len_first_line(char *content)
+static int	_get_len_first_line(char *content)
 {
 	int		len;
 
@@ -30,7 +30,7 @@ int	check_input_and_generate_map(char *content)
 
 	if (content[ft_strlen(content) - 1] != '\n')
 		return (FAIL);
-	first_line_len = get_len_first_line(content);
+	first_line_len = _get_len_first_line(content);
 	if (check_first_line(content, first_line_len) == FAIL)
 		return (FAIL);
 	map = ft_split(content + first_line_len, "\n");
