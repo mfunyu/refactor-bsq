@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generate_answer.c                                  :+:      :+:    :+:   */
+/*   apply_square_on_map.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 15:53:45 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 15:53:58 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-void	generate_answer(char **map, t_info *p_info)
+void	apply_square_on_map(char **map, t_info *p_info)
 {
-	t_coord	p_coord;
+	int		x;
+	int		y;
 
-	p_coord.y = 0;
-	while (p_coord.y < p_info->map_height)
+	y = 0;
+	while (y < p_info->max_sq_size)
 	{
-		p_coord.x = 0;
-		while (p_coord.x < p_info->map_width)
+		x = 0;
+		while (x < p_info->max_sq_size)
 		{
-			if (is_empty_spot_on_map(map, p_coord.x, p_coord.y, p_info))
-				search_square(map, &p_coord, p_info);
-			p_coord.x++;
+			map[p_info->sq_y_coord + y][p_info->sq_x_coord + x] = p_info->full;
+			x++;
 		}
-		p_coord.y++;
+		y++;
 	}
-	apply_square_on_map(map, p_info);
-	put_map(map, p_info);
 }

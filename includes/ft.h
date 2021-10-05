@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 02:06:29 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/05 15:54:30 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ void			generate_answer(char **map, t_info *p_info);
 
 char	*read_from_fd(int fd);
 void	free_map(char ***map);
+
+void	search_square(char **map, t_coord *p_coord, t_info *p_info);
+void	apply_square_on_map(char **map, t_info *p_info);
 
 void	put_map(char **map, t_info *p_info);
 
