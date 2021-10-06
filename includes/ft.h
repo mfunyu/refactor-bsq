@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 23:10:21 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/06 23:23:14 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ typedef struct s_coord
 	int	y;
 }				t_coord;
 
-char	*read_from_fd(int fd);
+int		read_map_from_stdin(char **content);
+int		read_map_from_file(char *filename, char **content);
 
 int		validate_input(char *content, t_info *info);
 int		validate_first_line(char *content, t_info *info);

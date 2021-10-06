@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 16:17:20 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/06 23:22:37 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-char	*read_from_fd(int fd)
+static char	*_read_from_fd(int fd)
 {
 	char	*content;
 	char	*tmp;
@@ -38,4 +38,26 @@ char	*read_from_fd(int fd)
 			exit(EXIT_FAILURE);
 	}
 	return (content);
+}
+
+int	read_map_from_stdin(char **content)
+{
+	*content = _read_from_fd(STDIN_FILENO);
+	if (!(*content))
+		return (FAIL);
+	return (SUCCESS);
+}
+
+int	read_map_from_file(char *filename, char **content)
+{
+	int		fd;
+
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (FAIL);
+	*content = _read_from_fd(fd);
+	close(fd);
+	if (!(*content))
+		return (FAIL);
+	return (SUCCESS);
 }

@@ -6,33 +6,11 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 23:14:55 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/06 23:21:51 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
-
-int	read_map_from_stdin(char **content)
-{
-	*content = read_from_fd(STDIN_FILENO);
-	if (!(*content))
-		return (FAIL);
-	return (SUCCESS);
-}
-
-int	read_map_from_file(char *filename, char **content)
-{
-	int		fd;
-
-	fd = open(filename, O_RDONLY);
-	if (fd == -1)
-		return (FAIL);
-	*content = read_from_fd(fd);
-	close(fd);
-	if (!(*content))
-		return (FAIL);
-	return (SUCCESS);
-}
 
 int	bsq(char *filename)
 {
