@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_input_and_generate_map.c                     :+:      :+:    :+:   */
+/*   load_map_data.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 21:44:02 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/06 23:18:15 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,5 @@ int	load_map_data(char ***p_map, char *content, t_info *info)
 	info->max_sq_size = 0;
 	info->sq_x_coord = 0;
 	info->sq_y_coord = 0;
-	return (SUCCESS);
-}
-
-int	validate_input(char *content, t_info *info)
-{
-	if (content[ft_strlen(content) - 1] != '\n')
-		return (FAIL);
-	if (validate_first_line(content, info) == FAIL)
-		return (FAIL);
 	return (SUCCESS);
 }

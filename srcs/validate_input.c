@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_first_line.c                                 :+:      :+:    :+:   */
+/*   validate_first_line.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:47:47 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 16:03:25 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/06 23:17:16 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,10 @@ static int	_validate_char_defined(char *content, t_info *info)
 	return (SUCCESS);
 }
 
-int	validate_first_line(char *content, t_info *info)
+int	validate_input(char *content, t_info *info)
 {
+	if (content[ft_strlen(content) - 1] != '\n')
+		return (FAIL);
 	if (_validate_map_height(content, info) == FAIL)
 		return (FAIL);
 	if (_validate_char_defined(content, info) == FAIL)
