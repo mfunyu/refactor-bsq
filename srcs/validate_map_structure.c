@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_structure.c                              :+:      :+:    :+:   */
+/*   validate_map_structure.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "ft.h"
 
-static int	_check_map_chars(char **map, t_info *info)
+static int	_validate_map_chars(char **map, t_info *info)
 {
 	int	x;
 	int	y;
@@ -38,7 +38,7 @@ static int	_check_map_chars(char **map, t_info *info)
 	return (SUCCESS);
 }
 
-static int	_check_map_shape_size(char **map, t_info *info)
+static int	_validate_map_shape_size(char **map, t_info *info)
 {
 	int	y;
 
@@ -54,11 +54,11 @@ static int	_check_map_shape_size(char **map, t_info *info)
 	return (SUCCESS);
 }
 
-int	check_map_structure(char **map, t_info *info)
+int	validate_map_structure(char **map, t_info *info)
 {
-	if (_check_map_chars(map, info) == FAIL)
+	if (_validate_map_chars(map, info) == FAIL)
 		return (FAIL);
-	if (_check_map_shape_size(map, info) == FAIL)
+	if (_validate_map_shape_size(map, info) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }

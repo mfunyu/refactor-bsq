@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 16:09:38 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/06 21:49:51 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ typedef struct s_coord
 
 char	*read_from_fd(int fd);
 
-int		check_input_and_generate_map(char *content);
-int		check_first_line(char *content, int len);
-int		check_map_structure(char **map, t_info *info);
+int		validate_input_and_generate_map(char *content);
+int		validate_first_line(char *content, int len);
+int		validate_map_structure(char **map, t_info *info);
 
 int		init_t_info(t_info *info, char **map, char *line, int len);
 

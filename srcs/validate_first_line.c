@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_first_line.c                                 :+:      :+:    :+:   */
+/*   validate_first_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "ft.h"
 
-int	check_first_line(char *content, int len)
+int	validate_first_line(char *content, int len)
 {
 	int		i;
 	int		empty;

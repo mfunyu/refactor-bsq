@@ -6,22 +6,22 @@
 #    By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/28 13:12:23 by louisnop          #+#    #+#              #
-#    Updated: 2021/10/05 16:08:57 by mfunyu           ###   ########.fr        #
+#    Updated: 2021/10/06 21:49:45 by mfunyu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bsq
 SRCSDIR = srcs/
 SRCS = main.c \
-		check_first_line.c \
-		check_map_structure.c \
+		validate_first_line.c \
+		validate_map_structure.c \
 		free.c \
 		generate_answer.c \
 		init_t_info.c \
 		is_empty_spot_on_map.c \
 		put_map.c \
 		read_from_fd.c \
-		check_input_and_generate_map.c \
+		validate_input_and_generate_map.c \
 		apply_square_on_map.c \
 		search_square.c \
 		utils/ft_atoi.c \
