@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 23:10:43 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/06 23:14:55 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	read_map_from_file(char *filename, char **content)
 	return (SUCCESS);
 }
 
-void	bsq(char *filename)
+int	bsq(char *filename)
 {
 	char	*content;
 	t_info	info;
@@ -43,21 +43,22 @@ void	bsq(char *filename)
 	if (!filename)
 	{
 		if (read_map_from_stdin(&content) == FAIL)
-			return (ft_puterror(FT_ERR_MAP));
+			return (FAIL);
 	}
 	else
 	{
 		if (read_map_from_file(filename, &content) == FAIL)
-			return (ft_puterror(FT_ERR_MAP));
+			return (FAIL);
 	}
 	if (validate_input(content, &info) == FAIL)
-		return (ft_puterror(FT_ERR_MAP));
+		return (FAIL);
 	if (load_map_data(&map, content, &info) == FAIL)
-		return (ft_puterror(FT_ERR_MAP));
+		return (FAIL);
 	if (validate_map_structure(map, &info) == FAIL)
-		return (ft_puterror(FT_ERR_MAP));
+		return (FAIL);
 	generate_answer(map, &info);
 	free_map(&map);
+	return (SUCCESS);
 }
 
 int	main(int argc, char *argv[])
@@ -66,13 +67,15 @@ int	main(int argc, char *argv[])
 
 	if (argc <= 1)
 	{
-		bsq(NULL);
+		if (bsq(NULL) == FAIL)
+			ft_puterror(FT_ERR_MAP);
 		return (0);
 	}
 	i = 1;
 	while (i < argc)
 	{
-		bsq(argv[i]);
+		if (bsq(argv[i]) == FAIL)
+			ft_puterror(FT_ERR_MAP);
 		if (++i != argc)
 			ft_putchar_fd('\n', STDOUT_FILENO);
 	}
