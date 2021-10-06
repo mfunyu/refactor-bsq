@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 22:52:58 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/06 23:10:21 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,11 @@ typedef struct s_coord
 
 char	*read_from_fd(int fd);
 
-int		validate_input_and_generate_map(char *content);
+int		validate_input(char *content, t_info *info);
 int		validate_first_line(char *content, t_info *info);
 int		validate_map_structure(char **map, t_info *info);
 
+int		load_map_data(char ***p_map, char *content, t_info *info);
 void	generate_answer(char **map, t_info *p_info);
 int		is_empty_spot_on_map(char **map, int x, int y, t_info *p_info);
 void	search_square(char **map, t_coord *p_coord, t_info *p_info);

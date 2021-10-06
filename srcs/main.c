@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 21:50:09 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/06 23:10:43 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	read_map_from_file(char *filename, char **content)
 void	bsq(char *filename)
 {
 	char	*content;
+	t_info	info;
+	char	**map;
 
 	if (!filename)
 	{
@@ -48,8 +50,14 @@ void	bsq(char *filename)
 		if (read_map_from_file(filename, &content) == FAIL)
 			return (ft_puterror(FT_ERR_MAP));
 	}
-	if (validate_input_and_generate_map(content) == FAIL)
+	if (validate_input(content, &info) == FAIL)
 		return (ft_puterror(FT_ERR_MAP));
+	if (load_map_data(&map, content, &info) == FAIL)
+		return (ft_puterror(FT_ERR_MAP));
+	if (validate_map_structure(map, &info) == FAIL)
+		return (ft_puterror(FT_ERR_MAP));
+	generate_answer(map, &info);
+	free_map(&map);
 }
 
 int	main(int argc, char *argv[])

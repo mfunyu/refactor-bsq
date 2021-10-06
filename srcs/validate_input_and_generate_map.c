@@ -31,21 +31,11 @@ int	load_map_data(char ***p_map, char *content, t_info *info)
 	return (SUCCESS);
 }
 
-int	validate_input_and_generate_map(char *content)
+int	validate_input(char *content, t_info *info)
 {
-	char	**map;
-	t_info	info;
-
 	if (content[ft_strlen(content) - 1] != '\n')
 		return (FAIL);
-	if (validate_first_line(content, &info) == FAIL)
+	if (validate_first_line(content, info) == FAIL)
 		return (FAIL);
-	if (load_map_data(&map, content, &info) == FAIL)
-		return (FAIL);
-	free(content);
-	if (validate_map_structure(map, &info) == FAIL)
-		return (FAIL);
-	generate_answer(map, &info);
-	free_map(&map);
 	return (SUCCESS);
 }
