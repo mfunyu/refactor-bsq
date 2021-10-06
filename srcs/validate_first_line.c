@@ -11,30 +11,64 @@
 /* ************************************************************************** */
 
 #include "ft.h"
+#include <stdio.h>
 
-int	validate_first_line(char *content, int len)
+static int	_get_digits(int nb)
+{
+	int		digits;
+
+	digits = 1;
+	while (nb / 10)
+	{
+		nb /= 10;
+		digits++;
+	}
+	return (digits);
+}
+
+static int	_validate_map_height(char *content, t_info *info)
 {
 	int		i;
-	int		empty;
-	int		obstacle;
-	int		full;
+	int		digits;
 
-	if (len < 4)
+	info->map_height = ft_atoi(content);
+	if (info->map_height <= 0)
 		return (FAIL);
-	i = -1;
-	while (++i < len - 3)
-		if (content[i] < '0' || content[i] > '9')
-			return (FAIL);
-	empty = i;
-	obstacle = i + 1;
-	full = i + 2;
-	if (!ft_is_printable(content[empty])
-		|| !ft_is_printable(content[obstacle])
-		|| !ft_is_printable(content[full]))
+	digits = _get_digits(info->map_height);
+	i = 0;
+	while ('0' <= content[i] && content[i] <= '9')
+		i++;
+	if (i != digits)
 		return (FAIL);
-	if (content[empty] == content[obstacle]
-		|| content[obstacle] == content[full]
-		|| content[full] == content[empty])
+	return (SUCCESS);
+}
+
+static int	_validate_char_defined(char *content, t_info *info)
+{
+	int		i;
+
+	i = 0;
+	while ('0' <= content[i] && content[i] <= '9')
+		i++;
+	info->empty = content[i];
+	info->obstacle = content[i + 1];
+	info->full = content[i + 2];
+	if (!ft_is_printable(info->empty)
+		|| !ft_is_printable(info->obstacle)
+		|| !ft_is_printable(info->full))
+		return (FAIL);
+	if (info->empty == info->obstacle
+		|| info->obstacle == info->full
+		|| info->full == info->empty)
+		return (FAIL);
+	return (SUCCESS);
+}
+
+int	validate_first_line(char *content, t_info *info)
+{
+	if (_validate_map_height(content, info) == FAIL)
+		return (FAIL);
+	if (_validate_char_defined(content, info) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }

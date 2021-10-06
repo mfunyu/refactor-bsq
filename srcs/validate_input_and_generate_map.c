@@ -44,7 +44,7 @@ int	validate_input_and_generate_map(char *content)
 	if (content[ft_strlen(content) - 1] != '\n')
 		return (FAIL);
 	first_line_len = _get_len_first_line(content);
-	if (validate_first_line(content, first_line_len) == FAIL)
+	if (validate_first_line(content, &info) == FAIL)
 		return (FAIL);
 	if (load_map(&map, content) == FAIL)
 		return (FAIL);
