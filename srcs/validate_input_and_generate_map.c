@@ -22,6 +22,19 @@ static int	_get_len_first_line(char *content)
 	return (len);
 }
 
+int	load_map(char ***p_map, char *content)
+{
+	char	**map;
+
+	*p_map = ft_split(content + _get_len_first_line(content), "\n");
+	map = *p_map;
+	if (!map)
+		exit(EXIT_FAILURE);
+	if (!map[0])
+		return (FAIL);
+	return (SUCCESS);
+}
+
 int	validate_input_and_generate_map(char *content)
 {
 	char	**map;
@@ -33,10 +46,7 @@ int	validate_input_and_generate_map(char *content)
 	first_line_len = _get_len_first_line(content);
 	if (validate_first_line(content, first_line_len) == FAIL)
 		return (FAIL);
-	map = ft_split(content + first_line_len, "\n");
-	if (!map)
-		exit(EXIT_FAILURE);
-	if (!map[0])
+	if (load_map(&map, content) == FAIL)
 		return (FAIL);
 	if (init_t_info(&info, map, content, first_line_len) == FAIL)
 		return (FAIL);
