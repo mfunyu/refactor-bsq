@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 15:53:45 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/06 23:24:58 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,4 @@ void	generate_answer(char **map, t_info *p_info)
 		}
 		p_coord.y++;
 	}
-	apply_square_on_map(map, p_info);
-	put_map(map, p_info);
 }
