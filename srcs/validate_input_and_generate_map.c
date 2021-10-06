@@ -12,26 +12,22 @@
 
 #include "ft.h"
 
-static int	_get_len_first_line(char *content)
-{
-	int		len;
-
-	len = 0;
-	while (content[len] && content[len] != '\n')
-		len++;
-	return (len);
-}
-
-int	load_map(char ***p_map, char *content)
+int	load_map_data(char ***p_map, char *content, t_info *info)
 {
 	char	**map;
 
-	*p_map = ft_split(content + _get_len_first_line(content), "\n");
+	while (*content != '\n')
+		content++;
+	*p_map = ft_split(content, "\n");
 	map = *p_map;
 	if (!map)
 		exit(EXIT_FAILURE);
 	if (!map[0])
 		return (FAIL);
+	info->map_width = ft_strlen(map[0]);
+	info->max_sq_size = 0;
+	info->sq_x_coord = 0;
+	info->sq_y_coord = 0;
 	return (SUCCESS);
 }
 
@@ -39,16 +35,12 @@ int	validate_input_and_generate_map(char *content)
 {
 	char	**map;
 	t_info	info;
-	int		first_line_len;
 
 	if (content[ft_strlen(content) - 1] != '\n')
 		return (FAIL);
-	first_line_len = _get_len_first_line(content);
 	if (validate_first_line(content, &info) == FAIL)
 		return (FAIL);
-	if (load_map(&map, content) == FAIL)
-		return (FAIL);
-	if (init_t_info(&info, map, content, first_line_len) == FAIL)
+	if (load_map_data(&map, content, &info) == FAIL)
 		return (FAIL);
 	free(content);
 	if (validate_map_structure(map, &info) == FAIL)

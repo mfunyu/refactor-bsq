@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 22:25:29 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/06 22:52:58 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ char	*read_from_fd(int fd);
 int		validate_input_and_generate_map(char *content);
 int		validate_first_line(char *content, t_info *info);
 int		validate_map_structure(char **map, t_info *info);
-
-int		init_t_info(t_info *info, char **map, char *line, int len);
 
 void	generate_answer(char **map, t_info *p_info);
 int		is_empty_spot_on_map(char **map, int x, int y, t_info *p_info);

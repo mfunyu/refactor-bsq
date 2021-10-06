@@ -6,7 +6,7 @@
 #    By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/28 13:12:23 by louisnop          #+#    #+#              #
-#    Updated: 2021/10/06 21:49:45 by mfunyu           ###   ########.fr        #
+#    Updated: 2021/10/06 22:54:15 by mfunyu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ SRCS = main.c \
 		validate_map_structure.c \
 		free.c \
 		generate_answer.c \
-		init_t_info.c \
 		is_empty_spot_on_map.c \
 		put_map.c \
 		read_from_fd.c \
