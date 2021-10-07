@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_input.c                                   :+:      :+:    :+:   */
+/*   t_info.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/29 22:47:47 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/08 00:58:00 by mfunyu           ###   ########.fr       */
+/*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
+/*   Updated: 2021/10/08 01:04:00 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bsq.h"
-#include "utils.h"
+#ifndef T_INFO_H
+# define T_INFO_H
 
-bool	is_valid_input(const char *content, t_info *info)
+typedef struct s_info
 {
-	if (content[ft_strlen(content) - 1] != '\n')
-		return (false);
-	if (!is_valid_chars(content, info))
-		return (false);
-	if (!is_valid_map_height(content, info))
-		return (false);
-	return (true);
-}
+	int		map_height;
+	int		map_width;
+	char	empty;
+	char	obstacle;
+	char	full;
+	int		max_sq_size;
+	int		sq_x_coord;
+	int		sq_y_coord;
+}				t_info;
+
+#endif

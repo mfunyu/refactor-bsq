@@ -6,11 +6,12 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 00:53:55 by mfunyu            #+#    #+#             */
-/*   Updated: 2021/10/08 00:57:03 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/08 01:07:08 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
+#include "validate.h"
 #include "utils.h"
 
 static int	_get_digits(int nb)

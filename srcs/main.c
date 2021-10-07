@@ -6,11 +6,12 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/08 00:52:22 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/08 01:05:33 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
+#include "validate.h"
 #include "utils.h"
 
 int	bsq(const char *filename)

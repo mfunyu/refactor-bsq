@@ -6,11 +6,12 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 00:53:55 by mfunyu            #+#    #+#             */
-/*   Updated: 2021/10/08 00:54:32 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/08 01:06:21 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
+#include "validate.h"
 #include "utils.h"
 
 static bool	_is_printable_chars(const t_info *info)
