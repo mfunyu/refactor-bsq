@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_map_structure.c                              :+:      :+:    :+:   */
+/*   is_valid_map_structure.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "ft.h"
 
-static int	_validate_map_chars(const char **map, t_info *info)
+static bool	_is_valid_map_chars(const char **map, t_info *info)
 {
 	int	x;
 	int	y;
@@ -38,7 +38,7 @@ static int	_validate_map_chars(const char **map, t_info *info)
 	return (SUCCESS);
 }
 
-static int	_validate_map_shape_size(const char **map, t_info *info)
+static bool	_is_valid_map_shape_size(const char **map, t_info *info)
 {
 	int	y;
 
@@ -54,11 +54,11 @@ static int	_validate_map_shape_size(const char **map, t_info *info)
 	return (SUCCESS);
 }
 
-int	validate_map_structure(const char **map, t_info *info)
+bool	is_valid_map_structure(const char **map, t_info *info)
 {
-	if (_validate_map_chars(map, info) == FAIL)
+	if (_is_valid_map_chars(map, info) == FAIL)
 		return (FAIL);
-	if (_validate_map_shape_size(map, info) == FAIL)
+	if (_is_valid_map_shape_size(map, info) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }

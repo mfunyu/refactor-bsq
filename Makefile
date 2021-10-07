@@ -6,15 +6,15 @@
 #    By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/28 13:12:23 by louisnop          #+#    #+#              #
-#    Updated: 2021/10/06 23:23:29 by mfunyu           ###   ########.fr        #
+#    Updated: 2021/10/07 16:22:52 by mfunyu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bsq
 SRCSDIR = srcs/
 SRCS = main.c \
-		validate_input.c \
-		validate_map_structure.c \
+		is_valid_input.c \
+		is_valid_map_structure.c \
 		free.c \
 		generate_answer.c \
 		is_empty_spot_on_map.c \

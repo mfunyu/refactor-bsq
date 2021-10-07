@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_input.c                                   :+:      :+:    :+:   */
+/*   is_valid_input.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 22:47:47 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/07 14:49:52 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:25:45 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static int	_get_digits(int nb)
 	return (digits);
 }
 
-static int	_validate_map_height(const char *content, t_info *info)
+static bool	_is_valid_map_height(const char *content, t_info *info)
 {
 	int		i;
 	int		digits;
@@ -43,7 +43,7 @@ static int	_validate_map_height(const char *content, t_info *info)
 	return (SUCCESS);
 }
 
-static int	_validate_char_defined(const char *content, t_info *info)
+static bool	_is_valid_char_defined(const char *content, t_info *info)
 {
 	int		i;
 
@@ -64,13 +64,13 @@ static int	_validate_char_defined(const char *content, t_info *info)
 	return (SUCCESS);
 }
 
-int	validate_input(const char *content, t_info *info)
+bool	is_valid_input(const char *content, t_info *info)
 {
 	if (content[ft_strlen(content) - 1] != '\n')
 		return (FAIL);
-	if (_validate_map_height(content, info) == FAIL)
+	if (_is_valid_map_height(content, info) == FAIL)
 		return (FAIL);
-	if (_validate_char_defined(content, info) == FAIL)
+	if (_is_valid_char_defined(content, info) == FAIL)
 		return (FAIL);
 	return (SUCCESS);
 }

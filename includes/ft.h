@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/07 16:11:33 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:26:35 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdbool.h>
 
 # define FT_BUFSIZ 320000
 # define SUCCESS 1
@@ -42,9 +43,9 @@ typedef struct s_coord
 int		read_map_from_stdin(char **content);
 int		read_map_from_file(const char *filename, char **content);
 
-int		validate_input(const char *content, t_info *info);
-int		validate_first_line(char *content, t_info *info);
-int		validate_map_structure(const char **map, t_info *info);
+bool	is_valid_input(const char *content, t_info *info);
+bool	is_valid_first_line(char *content, t_info *info);
+bool	is_valid_map_structure(const char **map, t_info *info);
 
 int		load_map_data(char ***p_map, const char *content, t_info *info);
 void	generate_answer(const char **map, t_info *p_info);
