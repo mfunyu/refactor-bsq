@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 22:25:40 by mfunyu            #+#    #+#             */
-/*   Updated: 2021/10/04 22:25:49 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:07:33 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-void	put_map(char **map, t_info *p_info)
+void	put_map(const char **map, const t_info *p_info)
 {
 	int	x;
 	int	y;

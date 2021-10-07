@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 23:18:15 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 14:50:29 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int	load_map_data(char ***p_map, char *content, t_info *info)
+int	load_map_data(char ***p_map, const char *content, t_info *info)
 {
 	char	**map;
 

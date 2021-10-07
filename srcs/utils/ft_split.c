@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 15:59:31 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/05 16:12:46 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:03:16 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-static int	_is_in_charset(char c, char *charset)
+static int	_is_in_charset(char c, const char *charset)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ static int	_is_in_charset(char c, char *charset)
 	return (0);
 }
 
-static int	_get_words_count(char *str, char *charset)
+static int	_get_words_count(const char *str, const char *charset)
 {
 	int	words_count;
 	int	inside_word;
@@ -47,7 +47,7 @@ static int	_get_words_count(char *str, char *charset)
 	return (words_count);
 }
 
-static int	_set_one_word(char **words_lst, char *str, int start, int end)
+static int	_set_one_word(char **words_lst, const char *str, int start, int end)
 {
 	char	*word_to_set;
 	int		i;
@@ -67,7 +67,8 @@ static int	_set_one_word(char **words_lst, char *str, int start, int end)
 	return (SUCCESS);
 }
 
-static int	_loop_check_str(char **words_lst, char *str, char *charset)
+static int	_loop_check_str(char **words_lst,
+								const char *str, const char *charset)
 {
 	int		inside_word;
 	int		word_head;
@@ -96,7 +97,7 @@ static int	_loop_check_str(char **words_lst, char *str, char *charset)
 	return (SUCCESS);
 }
 
-char	**ft_split(char *str, char *charset)
+char	**ft_split(const char *str, const char *charset)
 {
 	char	**words_lst;
 	int		words_count;

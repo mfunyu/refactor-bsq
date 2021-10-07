@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_from_fd.c                                     :+:      :+:    :+:   */
+/*   read.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 23:22:37 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 14:48:29 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-static char	*_read_from_fd(int fd)
+static char	*_read_from_fd(const int fd)
 {
 	char	*content;
 	char	*tmp;
@@ -48,7 +48,7 @@ int	read_map_from_stdin(char **content)
 	return (SUCCESS);
 }
 
-int	read_map_from_file(char *filename, char **content)
+int	read_map_from_file(const char *filename, char **content)
 {
 	int		fd;
 

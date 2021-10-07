@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 23:23:14 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:11:33 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,34 +40,34 @@ typedef struct s_coord
 }				t_coord;
 
 int		read_map_from_stdin(char **content);
-int		read_map_from_file(char *filename, char **content);
+int		read_map_from_file(const char *filename, char **content);
 
-int		validate_input(char *content, t_info *info);
+int		validate_input(const char *content, t_info *info);
 int		validate_first_line(char *content, t_info *info);
-int		validate_map_structure(char **map, t_info *info);
+int		validate_map_structure(const char **map, t_info *info);
 
-int		load_map_data(char ***p_map, char *content, t_info *info);
-void	generate_answer(char **map, t_info *p_info);
-int		is_empty_spot_on_map(char **map, int x, int y, t_info *p_info);
-void	search_square(char **map, t_coord *p_coord, t_info *p_info);
-void	apply_square_on_map(char **map, t_info *p_info);
-void	put_map(char **map, t_info *p_info);
+int		load_map_data(char ***p_map, const char *content, t_info *info);
+void	generate_answer(const char **map, t_info *p_info);
+int		is_empty_spot_on_map(const char **map, int x, int y, t_info *p_info);
+void	search_square(const char **map, t_coord *p_coord, t_info *p_info);
+void	apply_square_on_map(char **map, const t_info *p_info);
+void	put_map(const char **map, const t_info *p_info);
 
 void	free_map(char ***map);
 
 /*
 ** utils
 */
-int		ft_atoi(char *str);
-int		ft_is_printable(char c);
+int		ft_atoi(const char *str);
+int		ft_is_printable(const char c);
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *str, int fd);
-void	ft_puterror(char *str);
+void	ft_putchar_fd(const char c, const int fd);
+void	ft_putstr_fd(const char *str, const int fd);
+void	ft_puterror(const char *str);
 
-char	**ft_split(char *str, char *charset);
-char	*ft_strdup(char *src);
-char	*ft_strjoin(char *s1, char *s2);
-int		ft_strlen(char *str);
+char	**ft_split(const char *str, const char *charset);
+char	*ft_strdup(const char *src);
+char	*ft_strjoin(const char *s1, const char *s2);
+int		ft_strlen(const char *str);
 
 #endif

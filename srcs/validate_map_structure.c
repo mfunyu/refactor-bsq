@@ -12,7 +12,7 @@
 
 #include "ft.h"
 
-static int	_validate_map_chars(char **map, t_info *info)
+static int	_validate_map_chars(const char **map, t_info *info)
 {
 	int	x;
 	int	y;
@@ -38,7 +38,7 @@ static int	_validate_map_chars(char **map, t_info *info)
 	return (SUCCESS);
 }
 
-static int	_validate_map_shape_size(char **map, t_info *info)
+static int	_validate_map_shape_size(const char **map, t_info *info)
 {
 	int	y;
 
@@ -54,7 +54,7 @@ static int	_validate_map_shape_size(char **map, t_info *info)
 	return (SUCCESS);
 }
 
-int	validate_map_structure(char **map, t_info *info)
+int	validate_map_structure(const char **map, t_info *info)
 {
 	if (_validate_map_chars(map, info) == FAIL)
 		return (FAIL);

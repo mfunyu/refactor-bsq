@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 21:59:15 by mfunyu            #+#    #+#             */
-/*   Updated: 2021/10/04 21:59:23 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:00:31 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int	ft_is_printable(char c)
+int	ft_is_printable(const char c)
 {
 	if (' ' <= c && c <= '~')
 		return (1);

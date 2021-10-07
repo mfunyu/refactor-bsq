@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 23:24:58 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:06:44 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-void	generate_answer(char **map, t_info *p_info)
+void	generate_answer(const char **map, t_info *p_info)
 {
 	t_coord	p_coord;
 

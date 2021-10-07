@@ -6,13 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/06 23:25:11 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:13:59 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int	bsq(char *filename)
+int	bsq(const char *filename)
 {
 	char	*content;
 	t_info	info;
@@ -28,15 +28,15 @@ int	bsq(char *filename)
 		if (read_map_from_file(filename, &content) == FAIL)
 			return (FAIL);
 	}
-	if (validate_input(content, &info) == FAIL)
+	if (validate_input((const char *) content, &info) == FAIL)
 		return (FAIL);
 	if (load_map_data(&map, content, &info) == FAIL)
 		return (FAIL);
-	if (validate_map_structure(map, &info) == FAIL)
+	if (validate_map_structure((const char **) map, &info) == FAIL)
 		return (FAIL);
-	generate_answer(map, &info);
+	generate_answer((const char **) map, &info);
 	apply_square_on_map(map, &info);
-	put_map(map, &info);
+	put_map((const char **) map, &info);
 	free_map(&map);
 	return (SUCCESS);
 }
