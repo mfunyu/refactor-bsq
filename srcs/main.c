@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/07 16:29:22 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:44:21 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	bsq(const char *filename)
 		return (FAIL);
 	if (!is_valid_map_structure((const char **) map, &info))
 		return (FAIL);
-	generate_answer((const char **) map, &info);
+	solve((const char **) map, &info);
 	apply_square_on_map(map, &info);
 	put_map((const char **) map, &info);
 	free_map(&map);

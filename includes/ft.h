@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/07 16:26:35 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:44:21 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ bool	is_valid_first_line(char *content, t_info *info);
 bool	is_valid_map_structure(const char **map, t_info *info);
 
 int		load_map_data(char ***p_map, const char *content, t_info *info);
-void	generate_answer(const char **map, t_info *p_info);
+void	solve(const char **map, t_info *p_info);
 int		is_empty_spot_on_map(const char **map, int x, int y, t_info *p_info);
 void	search_square(const char **map, t_coord *p_coord, t_info *p_info);
 void	apply_square_on_map(char **map, const t_info *p_info);

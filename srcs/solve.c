@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   generate_answer.c                                  :+:      :+:    :+:   */
+/*   solve.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "ft.h"
 
-void	generate_answer(const char **map, t_info *p_info)
+void	solve(const char **map, t_info *p_info)
 {
 	t_coord	p_coord;
 
