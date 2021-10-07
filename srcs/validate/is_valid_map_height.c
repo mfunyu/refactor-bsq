@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/08 00:53:55 by mfunyu            #+#    #+#             */
-/*   Updated: 2021/10/08 01:07:08 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/08 01:11:04 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,22 @@ static char	*_get_header(const char *content)
 	return (header);
 }
 
-bool	is_valid_map_height(const char *content, t_info *info)
+static bool	_is_no_overflow(const char *header, t_info *info)
 {
 	int		i;
 	int		digits;
+
+	digits = _get_digits(info->map_height);
+	i = 0;
+	while (header[i] && '0' <= header[i] && header[i] <= '9')
+		i++;
+	if (i != digits)
+		return (false);
+	return (true);
+}
+
+bool	is_valid_map_height(const char *content, t_info *info)
+{
 	char	*header;
 
 	header = _get_header(content);
@@ -51,12 +63,11 @@ bool	is_valid_map_height(const char *content, t_info *info)
 		free(header);
 		return (false);
 	}
-	digits = _get_digits(info->map_height);
-	i = 0;
-	while (header[i] && '0' <= header[i] && header[i] <= '9')
-		i++;
-	free(header);
-	if (i != digits)
+	if (!_is_no_overflow(header, info))
+	{
+		free(header);
 		return (false);
+	}
+	free(header);
 	return (true);
 }
