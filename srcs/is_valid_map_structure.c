@@ -26,7 +26,7 @@ static bool	_is_valid_map_chars(const char **map, t_info *info)
 		while (map[y][x])
 		{
 			if (map[y][x] != info->empty && map[y][x] != info->obstacle)
-				return (FAIL);
+				return (false);
 			if (map[y][x] == info->empty)
 				no_empty_spot = 0;
 			x++;
@@ -34,8 +34,8 @@ static bool	_is_valid_map_chars(const char **map, t_info *info)
 		y++;
 	}
 	if (no_empty_spot)
-		return (FAIL);
-	return (SUCCESS);
+		return (false);
+	return (true);
 }
 
 static bool	_is_valid_map_shape_size(const char **map, t_info *info)
@@ -46,19 +46,19 @@ static bool	_is_valid_map_shape_size(const char **map, t_info *info)
 	while (map[y])
 	{
 		if (ft_strlen(map[y]) != info->map_width)
-			return (FAIL);
+			return (false);
 		y++;
 	}
 	if (y != info->map_height)
-		return (FAIL);
-	return (SUCCESS);
+		return (false);
+	return (true);
 }
 
 bool	is_valid_map_structure(const char **map, t_info *info)
 {
-	if (_is_valid_map_chars(map, info) == FAIL)
-		return (FAIL);
-	if (_is_valid_map_shape_size(map, info) == FAIL)
-		return (FAIL);
-	return (SUCCESS);
+	if (!_is_valid_map_chars(map, info))
+		return (false);
+	if (!_is_valid_map_shape_size(map, info))
+		return (false);
+	return (true);
 }
