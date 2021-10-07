@@ -6,7 +6,7 @@
 #    By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/28 13:12:23 by louisnop          #+#    #+#              #
-#    Updated: 2021/10/08 01:05:58 by mfunyu           ###   ########.fr        #
+#    Updated: 2021/10/08 01:55:06 by mfunyu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ SRCS = main.c \
 		validate/is_valid_chars.c \
 		validate/is_valid_map_height.c \
 		validate/is_valid_map_structure.c \
+		validate/is_valid_coordinate.c \
 		validate/header_len.c \
 		free.c \
 		solve.c \
-		is_empty_spot_on_map.c \
 		put_map.c \
 		read.c \
 		load_map_data.c \

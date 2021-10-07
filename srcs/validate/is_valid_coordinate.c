@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_empty_spot_on_map.c                             :+:      :+:    :+:   */
+/*   is_empty_coordinate.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,14 +11,19 @@
 /* ************************************************************************** */
 
 #include "bsq.h"
+#include "validate.h"
 
-int	is_empty_spot_on_map(const char **map, int x, int y, t_info *p_info)
+static bool	_is_empty(const char **map, int x, int y, t_info *info)
 {
-	if (x == p_info->map_width)
-		return (0);
-	if (y == p_info->map_height)
-		return (0);
-	if (map[y][x] == p_info->obstacle || map[y][x] == '\0')
-		return (0);
-	return (1);
+	return (map[y][x] == info->empty);
+}
+
+static bool	_is_inside_map(int x, int y, t_info *info)
+{
+	return (x < info->map_width && y < info->map_height);
+}
+
+bool	is_valid_coordinate(const char **map, int x, int y, t_info *info)
+{
+	return (_is_inside_map(x, y, info) && _is_empty(map, x, y, info));
 }

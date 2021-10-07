@@ -6,13 +6,14 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 21:46:00 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/07 16:46:43 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/08 01:57:58 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
+#include "validate.h"
 
-static int	_is_square_placable(const char **map, t_coord *p_coord,
+static bool	_is_square_placable(const char **map, t_coord *p_coord,
 							int sq_size, t_info *p_info)
 {
 	int	i;
@@ -20,20 +21,20 @@ static int	_is_square_placable(const char **map, t_coord *p_coord,
 	i = 0;
 	while (i <= sq_size)
 	{
-		if (!is_empty_spot_on_map(map, p_coord->x + i,
+		if (!is_valid_coordinate(map, p_coord->x + i,
 				p_coord->y + sq_size, p_info))
-			return (0);
+			return (false);
 		i++;
 	}
 	i = 0;
 	while (i <= sq_size)
 	{
-		if (!is_empty_spot_on_map(map, p_coord->x + sq_size,
+		if (!is_valid_coordinate(map, p_coord->x + sq_size,
 				p_coord->y + i, p_info))
-			return (0);
+			return (false);
 		i++;
 	}
-	return (1);
+	return (true);
 }
 
 void	search_square(const char **map, t_coord *p_coord, t_info *p_info)

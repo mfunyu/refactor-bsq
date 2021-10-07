@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/08 01:06:56 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/08 01:57:40 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ bool	is_valid_map_structure(const char **map, t_info *info);
 bool	is_valid_chars(const char *content, t_info *info);
 bool	is_valid_map_height(const char *content, t_info *info);
 int		header_len(const char *content);
+bool	is_valid_coordinate(const char **map, int x, int y, t_info *info);
 
 #endif
