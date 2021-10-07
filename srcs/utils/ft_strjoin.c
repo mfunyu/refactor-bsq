@@ -6,11 +6,12 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 13:41:41 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/07 16:46:43 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:51:40 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
+#include "utils.h"
 
 char	*ft_strjoin(const char *s1, const char *s2)
 {

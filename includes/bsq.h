@@ -6,12 +6,13 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/29 10:30:46 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/07 16:47:08 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:52:15 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BSQ_H
 # define BSQ_H
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -55,20 +56,5 @@ void	apply_square_on_map(char **map, const t_info *p_info);
 void	put_map(const char **map, const t_info *p_info);
 
 void	free_map(char ***map);
-
-/*
-** utils
-*/
-int		ft_atoi(const char *str);
-int		ft_is_printable(const char c);
-
-void	ft_putchar_fd(const char c, const int fd);
-void	ft_putstr_fd(const char *str, const int fd);
-void	ft_puterror(const char *str);
-
-char	**ft_split(const char *str, const char *charset);
-char	*ft_strdup(const char *src);
-char	*ft_strjoin(const char *s1, const char *s2);
-int		ft_strlen(const char *str);
 
 #endif
