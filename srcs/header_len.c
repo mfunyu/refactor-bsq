@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_valid_input.c                                   :+:      :+:    :+:   */
+/*   header_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/29 22:47:47 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/08 00:58:00 by mfunyu           ###   ########.fr       */
+/*   Created: 2021/10/08 00:57:29 by mfunyu            #+#    #+#             */
+/*   Updated: 2021/10/08 00:57:39 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bsq.h"
-#include "utils.h"
-
-bool	is_valid_input(const char *content, t_info *info)
+int	header_len(const char *content)
 {
-	if (content[ft_strlen(content) - 1] != '\n')
-		return (false);
-	if (!is_valid_chars(content, info))
-		return (false);
-	if (!is_valid_map_height(content, info))
-		return (false);
-	return (true);
+	int		len;
+
+	len = 0;
+	while (content[len] != '\n')
+		len++;
+	return (len);
 }

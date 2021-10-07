@@ -6,7 +6,7 @@
 #    By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/01/28 13:12:23 by louisnop          #+#    #+#              #
-#    Updated: 2021/10/07 16:44:21 by mfunyu           ###   ########.fr        #
+#    Updated: 2021/10/08 01:00:06 by mfunyu           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,10 @@ NAME = bsq
 SRCSDIR = srcs/
 SRCS = main.c \
 		is_valid_input.c \
+		is_valid_chars.c \
+		is_valid_map_height.c \
 		is_valid_map_structure.c \
+		header_len.c \
 		free.c \
 		solve.c \
 		is_empty_spot_on_map.c \

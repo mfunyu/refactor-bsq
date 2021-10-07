@@ -6,7 +6,7 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/30 02:58:38 by louisnop          #+#    #+#             */
-/*   Updated: 2021/10/07 16:50:46 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/08 00:52:22 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	bsq(const char *filename)
 		if (read_map_from_file(filename, &content) == FAIL)
 			return (FAIL);
 	}
-	if (!is_valid_input((const char *) content, &info))
+	if (!is_valid_input(content, &info))
 		return (FAIL);
 	if (load_map_data(&map, content, &info) == FAIL)
 		return (FAIL);
