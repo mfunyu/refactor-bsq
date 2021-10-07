@@ -6,11 +6,11 @@
 /*   By: mfunyu <mfunyu@student.42tokyo.jp>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 21:59:15 by mfunyu            #+#    #+#             */
-/*   Updated: 2021/10/07 16:00:31 by mfunyu           ###   ########.fr       */
+/*   Updated: 2021/10/07 16:46:43 by mfunyu           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft.h"
+#include "bsq.h"
 
 int	ft_is_printable(const char c)
 {
